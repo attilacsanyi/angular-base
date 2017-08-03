@@ -1,6 +1,7 @@
 {
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "node_modules/codelyzer",
+    "tslint-consistent-codestyle"
   ],
   "rules": {
     "arrow-return-shorthand": true,
@@ -71,6 +72,13 @@
     "no-unused-expression": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
+    "no-unused-variable": [
+      false,
+      "check-parameters",
+      {
+        "ignore-pattern": "^_"
+      }
+    ],
     "object-literal-sort-keys": false,
     "one-line": [
       true,
@@ -137,6 +145,12 @@
     "directive-class-suffix": true,
     "no-access-missing-member": true,
     "templates-use-public": true,
-    "invoke-injectable": true
+    "invoke-injectable": true,
+    "pipe-impure": true,
+    "no-attribute-parameter-decorator": true,
+    "no-forward-ref": true,
+    "no-unused-css": true,
+    "use-pipe-decorator": true,
+    "no-unused": true
   }
 }
