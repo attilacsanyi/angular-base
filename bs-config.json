@@ -1,0 +1,6 @@
+{
+  "port": 5201,
+  "server": {
+    "baseDir": "./dist"
+  }
+}
