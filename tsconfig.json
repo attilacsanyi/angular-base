@@ -2,6 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -16,11 +17,14 @@
       "dom"
     ],
     "paths": {
+      "@core/*": [
+        "app/core/*"
+      ],
       "@shared/*": [
         "app/shared/*"
       ],
-      "@core/*": [
-        "app/core/*"
+      "@environment/*": [
+        "environments/*"
       ]
     }
   }

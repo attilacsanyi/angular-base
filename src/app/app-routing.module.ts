@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, /* PreloadAllModules, */ Routes } from '@angular/router';
-import { environment } from '../environments/environment';
+
+import { environment } from '@environment/environment';
 
 export const routes: Routes = [
   // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

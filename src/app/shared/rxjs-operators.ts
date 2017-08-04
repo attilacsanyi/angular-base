@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Observable';
-import { environment } from '../../environments/environment';
+import { environment } from '@environment/environment';
 // import 'rxjs/Rx'; // adds ALL RxJS statics & operators to Observable
 
 // See node_module/rxjs/Rxjs.js
@@ -27,6 +27,7 @@ import { environment } from '../../environments/environment';
 // import 'rxjs/add/operator/concat';
 // import 'rxjs/add/operator/share';
 // import 'rxjs/add/operator/zip';
+// import 'rxjs/add/observable/of';
 
 // Custom operators
 const isDebugging = environment.rxJsDebugger;

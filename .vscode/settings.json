@@ -1,0 +1,21 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true
+  },
+  "search.exclude": {
+    ".vscode": true,
+    "coverage": true,
+    "dist": true,
+    "**/node_modules": true,
+    "**/*.d.ts": true,
+    "**/*.js": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "window.title": "${rootName}${separator}${activeEditorLong} ${dirty}",
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "typescript.implementationsCodeLens.enabled": true,
+  "vsicons.presets.angular": true
+}

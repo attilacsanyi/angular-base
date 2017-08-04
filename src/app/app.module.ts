@@ -6,10 +6,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { environment } from '../environments/environment';
+import { environment } from '@environment/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
+
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
   declarations: [
