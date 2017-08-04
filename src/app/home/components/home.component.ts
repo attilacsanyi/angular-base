@@ -1,4 +1,10 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { AppState } from 'app/app.state';
+
+import * as home from '@home/store';
 
 @Component({
   selector: 'ac-home',
@@ -8,9 +14,14 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  title$: Observable<string>;
+
+  constructor(
+    private store$: Store<AppState>
+  ) { }
 
   ngOnInit() {
+    this.title$ = this.store$.select(home.getTitleState);
   }
 
 }

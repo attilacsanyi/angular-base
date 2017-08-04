@@ -1,6 +1,5 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { EffectsModule } from '@ngrx/effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from '@shared/shared.module';
 
@@ -8,12 +7,7 @@ import { SharedModule } from '@shared/shared.module';
 import { TitleComponent } from '@core/components';
 
 @NgModule({
-  imports: [
-    BrowserAnimationsModule,
-
-    SharedModule.forRoot(),
-    EffectsModule.forFeature([])
-  ],
+  imports: [BrowserAnimationsModule, SharedModule.forRoot()],
   declarations: [TitleComponent],
   providers: [],
   // Dynamically loaded comonents here

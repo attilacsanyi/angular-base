@@ -5,15 +5,19 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { CoreModule } from '@core/core.module';
+import * as core from '@core/store';
+
 import { HomeModule } from '@home/home.module';
 import { DashboardModule } from '@dashboard/dashboard.module';
 
+import { initialState } from './app/app.state';
+
 @NgModule({
   imports: [
-    NoopAnimationsModule, RouterTestingModule,
+    NoopAnimationsModule, RouterTestingModule.withRoutes([]),
     CoreModule, HomeModule, DashboardModule,
     // ngrx
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ core: core.reducer }, { initialState }),
     EffectsModule.forRoot([]),
   ],
   exports: [CoreModule],

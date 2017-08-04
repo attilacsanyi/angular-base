@@ -1,11 +1,35 @@
 <md-toolbar fxLayout="column" color="primary">
-  <div fxFlex="50%" fxLayoutGap="10px">
+  <div fxLayoutGap="15px">
+    <!-- Home -->
     <a md-mini-fab routerLink="home" routerLinkActive #rlaHome="routerLinkActive" [color]="rlaHome.isActive ? 'accent' : 'default'">
       <md-icon>home</md-icon>
     </a>
+
+    <!-- Dashboard -->
     <a md-mini-fab routerLink="dashboard" routerLinkActive #rlaDashboard="routerLinkActive" [color]="rlaDashboard.isActive ? 'accent' : 'default'">
       <md-icon>dashboard</md-icon>
     </a>
+
   </div>
-  <span fxFlex></span> {{title}}
+
+  <!-- Title -->
+  <span fxFlex></span> {{title}}<span fxFlex></span>
+
+  <div fxLayoutGap="15px">
+    <!-- User -->
+    <ng-container *ngIf="user$ | async as user; else anonymous">
+      <button md-raised-button color="primary">
+      <md-icon>account_circle</md-icon> {{ user.name }} ({{user.age}})
+  <!-- Logout -->
+    </button>
+      <button md-raised-button (click)="logout()" color="primary"><md-icon>power_settings_new</md-icon></button>
+    </ng-container>
+
+    <ng-template #anonymous>
+      <!-- Login -->
+      <button md-raised-button (click)="login()" color="primary"><md-icon>fingerprint</md-icon></button>
+    </ng-template>
+  </div>
+
+
 </md-toolbar>

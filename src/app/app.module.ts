@@ -9,8 +9,10 @@ import { StoreModule } from '@ngrx/store';
 import { environment } from '@environment/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { initialState, /* appStateReducer */ } from './app.state';
 
 import { CoreModule } from '@core/core.module';
+import * as core from '@core/store';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,18 @@ import { CoreModule } from '@core/core.module';
     CoreModule.forRoot(),
 
     // Store
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ core: core.reducer }, { initialState }),
+    EffectsModule.forRoot([core.CoreEffectsService]),
+
+
+    // ISSUE: store-devtools currently causes severe performance problems when used with router-store.
+    // We are working to fix this, but for now, avoid using them together.
+    // https://github.com/ngrx/platform/issues/97
     StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : [], //  Retains last 50 states
 
-    EffectsModule.forRoot([]),
+    AppRoutingModule,
 
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

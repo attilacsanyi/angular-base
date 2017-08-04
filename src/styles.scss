@@ -6,3 +6,7 @@
 @import 'styles/colours';
 @import 'styles/theme';
 @import 'styles/typography';
+
+html * {
+  @extend %lato;
+}
