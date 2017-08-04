@@ -1,0 +1,10 @@
+@import 'fonts';
+@import 'colours';
+@import 'theme';
+@import 'typography';
+
+%label {
+  @extend %lato;
+  color: $label-color;
+  text-transform: uppercase;
+}
