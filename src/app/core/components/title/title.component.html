@@ -1,5 +1,11 @@
 <md-toolbar fxLayout="column" color="primary">
-  {{title}}
-  <span fxFlex></span>
-  <md-icon color="accent">home</md-icon>
+  <div fxFlex="50%" fxLayoutGap="10px">
+    <a md-mini-fab routerLink="home" routerLinkActive #rlaHome="routerLinkActive" [color]="rlaHome.isActive ? 'accent' : 'default'">
+      <md-icon>home</md-icon>
+    </a>
+    <a md-mini-fab routerLink="dashboard" routerLinkActive #rlaDashboard="routerLinkActive" [color]="rlaDashboard.isActive ? 'accent' : 'default'">
+      <md-icon>dashboard</md-icon>
+    </a>
+  </div>
+  <span fxFlex></span> {{title}}
 </md-toolbar>

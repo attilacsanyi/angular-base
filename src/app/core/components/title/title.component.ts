@@ -4,7 +4,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
   selector: 'ac-title',
   templateUrl: './title.component.html',
   styleUrls: ['./title.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class TitleComponent implements OnInit {
 

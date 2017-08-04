@@ -23,6 +23,12 @@
       "@shared/*": [
         "app/shared/*"
       ],
+      "@home/*": [
+        "app/home/*"
+      ],
+      "@dashboard/*": [
+        "app/dashboard/*"
+      ],
       "@environment/*": [
         "environments/*"
       ]
