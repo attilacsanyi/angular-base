@@ -4,6 +4,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { SharedModule } from '@shared/shared.module';
 
+import { DashboardResolver } from '@dashboard/services';
 import * as store from '@dashboard/store';
 
 import { DashboardRoutingModule, routingComponents } from './dashboard-routing.module';
@@ -18,6 +19,7 @@ import { DashboardRoutingModule, routingComponents } from './dashboard-routing.m
 
     DashboardRoutingModule
   ],
-  declarations: [...routingComponents]
+  declarations: [...routingComponents],
+  providers: [DashboardResolver]
 })
 export class DashboardModule { }

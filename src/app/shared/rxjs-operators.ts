@@ -20,7 +20,7 @@ import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/pluck';
 // import 'rxjs/add/operator/combineLatest';
 // import 'rxjs/add/operator/withLatestFrom';
-// import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/take';
 // import 'rxjs/add/operator/skip';
 // import 'rxjs/add/operator/concat';
 // import 'rxjs/add/operator/share';
