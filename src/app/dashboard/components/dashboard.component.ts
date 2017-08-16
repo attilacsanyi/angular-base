@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { AppState } from 'app/app.state';
 
-import * as dashboard from '@dashboard/store';
+import * as selectors from '@dashboard/store/selectors';
 
 @Component({
   selector: 'ac-dashboard',
@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.title$ = this.store$.select(dashboard.getTitleState);
+    this.title$ = this.store$.select(selectors.getTitleState);
   }
 
 }

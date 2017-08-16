@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { AppState } from 'app/app.state';
 
-import * as home from '@home/store';
+import * as selectors from '@home/store/selectors';
 
 @Component({
   selector: 'ac-home',
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.title$ = this.store$.select(home.getTitleState);
+    this.title$ = this.store$.select(selectors.getTitleState);
   }
 
 }

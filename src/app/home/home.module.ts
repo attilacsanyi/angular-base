@@ -4,7 +4,9 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { SharedModule } from '@shared/shared.module';
 
-import * as store from '@home/store';
+import * as reducers from '@home/store/reducers';
+import * as effects from '@home/store/effects';
+import * as states from '@home/store/states';
 
 import { HomeRoutingModule, routingComponents } from './home-routing.module';
 
@@ -13,8 +15,8 @@ import { HomeRoutingModule, routingComponents } from './home-routing.module';
     SharedModule,
 
     // ngrx
-    StoreModule.forFeature('home', store.reducer, { initialState: store.initialState }),
-    EffectsModule.forFeature([store.HomeEffectsService]),
+    StoreModule.forFeature('home', reducers.reducer, { initialState: states.initialState }),
+    EffectsModule.forFeature([effects.HomeEffectsService]),
 
     HomeRoutingModule
   ],

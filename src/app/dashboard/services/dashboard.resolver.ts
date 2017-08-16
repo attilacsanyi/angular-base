@@ -5,7 +5,8 @@ import { Store } from '@ngrx/store';
 
 import { AppState } from '../../app.state';
 
-import * as store from '@dashboard/store';
+import * as selector from '@dashboard/store/selectors';
+import * as actions from '@dashboard/store/actions';
 
 @Injectable()
 export class DashboardResolver implements Resolve<string> {
@@ -18,10 +19,10 @@ export class DashboardResolver implements Resolve<string> {
   }
 
   public titleSelector() {
-    return this.store$.select(store.getTitleState);
+    return this.store$.select(selector.getTitleState);
   }
 
   public loadTitle() {
-    this.store$.dispatch(new store.LoadTitleAction('This is the new Dashboard title from route resolve'));
+    this.store$.dispatch(new actions.LoadTitleAction('This is the new Dashboard title from route resolve'));
   }
 }

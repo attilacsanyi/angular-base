@@ -13,7 +13,8 @@ import { AppComponent } from './app.component';
 import { initialState } from './app.state';
 
 import { CoreModule } from '@core/core.module';
-import * as core from '@core/store';
+import * as reducers from '@core/store/reducers';
+import * as effects from '@core/store/effects';
 
 // https://github.com/ngrx/platform/blob/master/docs/router-store/api.md#custom-router-state-serializer
 export interface RouterStateUrl {
@@ -35,8 +36,8 @@ export class CustomRouteStateSerializer implements RouterStateSerializer<RouterS
     CoreModule.forRoot(),
 
     // ngrx
-    StoreModule.forRoot({ core: core.reducer, router: routerReducer }, { initialState }),
-    EffectsModule.forRoot([core.CoreEffectsService]),
+    StoreModule.forRoot({ core: reducers.reducer, router: routerReducer }, { initialState }),
+    EffectsModule.forRoot([effects.CoreEffectsService]),
     StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : [], //  Retains last 50 states
 

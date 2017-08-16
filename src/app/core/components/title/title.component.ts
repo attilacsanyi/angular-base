@@ -4,7 +4,8 @@ import { Store } from '@ngrx/store';
 
 import { AppState } from 'app/app.state';
 
-import * as core from '@core/store';
+import * as selectors from '@core/store/selectors';
+import * as actions from '@core/store/actions';
 import * as models from '@core/models';
 
 @Component({
@@ -24,11 +25,11 @@ export class TitleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.user$ = this.store$.select(core.getUserState);
+    this.user$ = this.store$.select(selectors.getUserState);
   }
 
-  logout = () => this.store$.dispatch(new core.LogoutAction());
+  logout = () => this.store$.dispatch(new actions.LogoutAction());
 
-  login = () => this.store$.dispatch(new core.LoginSuccessAction(models.testUser));
+  login = () => this.store$.dispatch(new actions.LoginSuccessAction(models.testUser));
 
 }

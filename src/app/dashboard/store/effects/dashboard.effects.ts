@@ -4,14 +4,13 @@ import { Action } from '@ngrx/store';
 import { Actions, Effect } from '@ngrx/effects';
 import { defer } from 'rxjs/observable/defer';
 
-import * as store from '@core/store';
-import * as model from '@core/models';
+import * as actions from '@dashboard/store/actions';
 
 @Injectable()
-export class CoreEffectsService {
+export class DashboardEffectsService {
 
   @Effect()
-  init$: Observable<Action> = defer(() => Observable.of(new store.LoginSuccessAction(model.testUser)));
+  init$: Observable<Action> = defer(() => Observable.of(new actions.LoadTitleAction('This is the initial Dashboard title from store')));
 
   constructor(
     private actions$: Actions,
