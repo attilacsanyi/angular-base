@@ -5,8 +5,8 @@ import { Store } from '@ngrx/store';
 
 import { AppState } from '../../app.state';
 
-import * as selector from '@dashboard/store/selectors';
-import * as actions from '@dashboard/store/actions';
+import * as selector from '../../dashboard/store/selectors';
+import * as actions from '../../dashboard/store/actions';
 
 @Injectable()
 export class DashboardResolver implements Resolve<string> {

@@ -1,6 +1,6 @@
-import * as core from '@core/store/states';
-import * as home from '@home/store/states';
-import * as dashboard from '@dashboard/store/states';
+import * as core from './core/store/states';
+import * as home from './home/store/states';
+import * as dashboard from './dashboard/store/states';
 
 export interface AppState {
   core: core.State;

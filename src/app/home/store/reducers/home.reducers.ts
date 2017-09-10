@@ -1,7 +1,7 @@
-import { assign } from '@shared/utils';
+import { assign } from '../../../shared/utils';
 
-import * as actions from '@home/store/actions';
-import * as states from '@home/store/states';
+import * as actions from '../../../home/store/actions';
+import * as states from '../../../home/store/states';
 
 export function reducer(state: states.State = states.initialState, action: actions.Actions) {
   switch (action.constructor) {

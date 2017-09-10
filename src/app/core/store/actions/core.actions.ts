@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { User } from '@core/models';
+import { User } from '../../../core/models';
 
 const modulePrefix = '[Core]';
 

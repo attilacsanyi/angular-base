@@ -1,12 +1,13 @@
-import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
-import { AppState } from 'app/app.state';
+import { AppState } from '../../app.state';
 
-import * as selectors from '@home/store/selectors';
+import * as selectors from '../../home/store/selectors';
 
 @Component({
+  moduleId: module.id,
   selector: 'ac-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],

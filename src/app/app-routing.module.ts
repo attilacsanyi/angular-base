@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules, Routes } from '@angular/router';
 
-import { environment } from '@environment/environment';
+import { environment } from '../environments/environment';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   // Lazy loaded modules
-  { path: 'home', loadChildren: './home/home.module#HomeModule' },
-  { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
+  { path: 'home', loadChildren: 'app/home/home.module#HomeModule' },
+  { path: 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule' },
 
   { path: '**', redirectTo: 'home' },
 ];

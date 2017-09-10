@@ -15,8 +15,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // Components
 import {
 
-} from '@shared/components';
-
+} from './components';
 
 const sharedComponents = [];
 

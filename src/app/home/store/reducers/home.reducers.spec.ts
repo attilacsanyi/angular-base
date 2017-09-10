@@ -1,8 +1,8 @@
-import { assign } from '@shared/utils';
+import { assign } from '../../../shared/utils';
 
-import * as reducers from '@home/store/reducers';
-import * as actions from '@home/store/actions';
-import * as states from '@home/store/states';
+import * as reducers from '../../../home/store/reducers';
+import * as actions from '../../../home/store/actions';
+import * as states from '../../../home/store/states';
 
 export const assignToInitState = (newState: Partial<states.State>) => assign(states.initialState, newState);
 

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from '@dashboard/components';
-import { DashboardResolver } from '@dashboard/services';
+import { DashboardComponent } from '../dashboard/components';
+import { DashboardResolver } from '../dashboard/services';
 
 export const routingComponents = [
   DashboardComponent

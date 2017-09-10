@@ -1,4 +1,4 @@
-import { User } from '@core/models';
+import { User } from '../../../core/models';
 
 export interface State {
   user: User;

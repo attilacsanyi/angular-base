@@ -5,7 +5,6 @@ import {
   MdSnackBarModule, MdMenuModule, MdDatepickerModule, MdNativeDateModule, DateAdapter,
 } from '@angular/material';
 // For supporting gestures
-import 'hammerjs';
 
 const materialModules = [
   MdCardModule, MdIconModule, MdTabsModule, MdButtonModule, MdButtonToggleModule, MdCheckboxModule, MdDialogModule, MdInputModule,

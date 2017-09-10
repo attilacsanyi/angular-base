@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { SharedModule } from '@shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
-import * as reducers from '@home/store/reducers';
-import * as effects from '@home/store/effects';
-import * as states from '@home/store/states';
+import * as reducers from '../home/store/reducers';
+import * as effects from '../home/store/effects';
+import * as states from '../home/store/states';
 
 import { HomeRoutingModule, routingComponents } from './home-routing.module';
 

@@ -16,8 +16,12 @@
     "test": "ng test -sr -cc",
     "tdd": "ng test",
     "e2e": "ng e2e",
-    "docs": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./docs -t --theme stripe --disableCoverage --hideGenerator -n \"Angular Base Documentation\""
-    "deploy": "./node_modules/.bin/firebase deploy"
+    "docs": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./docs -t --theme stripe --disableCoverage --hideGenerator -n \"Angular Base Documentation\"",
+    "ngu": "npm run ngu-app-shell && npm run ngu-sw-manifest && npm run ngu-firebase-push",
+    "ngu-app-shell": "./node_modules/.bin/ngu-app-shell --module src/app/app.module.ts --url /loading --insert-module src/app/loading/loading.module.ts --out dist/index.html",
+    "ngu-sw-manifest": "./node_modules/.bin/ngu-sw-manifest --module src/app/app.module.ts --out dist/ngsw-manifest.json",
+    "ngu-firebase-push": "./node_modules/.bin/ngu-firebase-push --module src/app/app.module.ts --out firebase.json --in firebase-config.json",
+    "deploy": "npm run ngu && ./node_modules/.bin/firebase deploy"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +36,7 @@
     "@angular/material": "2.0.0-beta.10",
     "@angular/platform-browser": "4.3.6",
     "@angular/platform-browser-dynamic": "4.3.6",
+    "@angular/platform-server": "4.3.6",
     "@angular/service-worker": "1.0.0-beta.16",
     "@angular/router": "4.3.6",
     "@ngrx/effects": "github:ngrx/effects-builds",
@@ -41,6 +46,7 @@
     "core-js": "2.5.0",
     "hammerjs": "2.0.8",
     "intl": "1.2.5",
+    "ng-pwa-tools": "0.0.15",
     "rxjs": "5.4.3",
     "web-animations-js": "2.3.1",
     "zone.js": "0.8.16"

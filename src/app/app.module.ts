@@ -7,14 +7,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { environment } from '@environment/environment';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initialState } from './app.state';
 
-import { CoreModule } from '@core/core.module';
-import * as reducers from '@core/store/reducers';
-import * as effects from '@core/store/effects';
+import { CoreModule } from './core/core.module';
+import * as reducers from './core/store/reducers';
+import * as effects from './core/store/effects';
+import { BrowserModule } from '@angular/platform-browser';
 
 // https://github.com/ngrx/platform/blob/master/docs/router-store/api.md#custom-router-state-serializer
 export interface RouterStateUrl {
@@ -33,6 +34,7 @@ export class CustomRouteStateSerializer implements RouterStateSerializer<RouterS
 
 @NgModule({
   imports: [
+    BrowserModule.withServerTransition({ appId: 'angular-base' }),
     CoreModule.forRoot(),
 
     // ngrx

@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { CoreModule } from '@core/core.module';
-import * as reducers from '@core/store/reducers';
+import { CoreModule } from './app/core/core.module';
+import * as reducers from './app/core/store/reducers';
 
-import { HomeModule } from '@home/home.module';
-import { DashboardModule } from '@dashboard/dashboard.module';
+import { HomeModule } from './app/home/home.module';
+import { DashboardModule } from './app/dashboard/dashboard.module';
 
 import { initialState } from './app/app.state';
 

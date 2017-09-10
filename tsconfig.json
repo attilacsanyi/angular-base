@@ -15,23 +15,6 @@
     "lib": [
       "es2017",
       "dom"
-    ],
-    "paths": {
-      "@core/*": [
-        "app/core/*"
-      ],
-      "@shared/*": [
-        "app/shared/*"
-      ],
-      "@home/*": [
-        "app/home/*"
-      ],
-      "@dashboard/*": [
-        "app/dashboard/*"
-      ],
-      "@environment/*": [
-        "environments/*"
-      ]
-    }
+    ]
   }
 }
