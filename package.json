@@ -17,6 +17,7 @@
     "tdd": "ng test",
     "e2e": "ng e2e",
     "docs": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./docs -t --theme stripe --disableCoverage --hideGenerator -n \"Angular Base Documentation\""
+    "deploy": "./node_modules/.bin/firebase deploy"
   },
   "private": true,
   "dependencies": {
@@ -53,6 +54,7 @@
     "@types/jasminewd2": "2.0.3",
     "@types/node": "8.0.28",
     "codelyzer": "3.1.2",
+    "firebase-tools": "3.10.1",
     "jasmine-core": "2.8.0",
     "jasmine-spec-reporter": "4.2.1",
     "karma": "1.7.1",
