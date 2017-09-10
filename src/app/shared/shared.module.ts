@@ -2,9 +2,9 @@
 import './rxjs-operators';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModuleWithProviders, NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
 
 // Material (custom)
 import { MaterialModule } from './material.module';
@@ -37,7 +37,7 @@ const dialogComponents = [];
   declarations: [...sharedComponents, ...dialogComponents],
   exports: [
     // Angular
-    CommonModule, RouterModule, HttpModule, FormsModule, ReactiveFormsModule,
+    CommonModule, RouterModule, HttpClientModule, FormsModule, ReactiveFormsModule,
 
     // Material
     MaterialModule,
