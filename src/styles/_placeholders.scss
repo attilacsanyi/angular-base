@@ -1,7 +1,7 @@
-@import 'fonts';
-@import 'colours';
-@import 'theme';
-@import 'typography';
+@import '_fonts.scss';
+@import '_colours.scss';
+@import '_theme.scss';
+@import '_typography.scss';
 
 %label {
   @extend %lato;

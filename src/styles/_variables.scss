@@ -1,7 +1,8 @@
-@import 'colours';
-@import 'fonts';
+@import '_colours.scss';
+@import '_fonts.scss';
 
 // SASS variables
 
 // Core
 $label-color: $grey3;
+$title-font-size: 12px;
