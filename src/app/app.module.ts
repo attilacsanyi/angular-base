@@ -1,3 +1,4 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterStateSnapshot } from '@angular/router';
 import { NgModule } from '@angular/core';
 
@@ -15,7 +16,6 @@ import { initialState } from './app.state';
 import { CoreModule } from './core/core.module';
 import * as reducers from './core/store/reducers';
 import * as effects from './core/store/effects';
-import { BrowserModule } from '@angular/platform-browser';
 
 // https://github.com/ngrx/platform/blob/master/docs/router-store/api.md#custom-router-state-serializer
 export interface RouterStateUrl {
