@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'styles/variables';
-@import 'styles/placeholders';
-@import 'styles/fonts';
-@import 'styles/colours';
-@import 'styles/theme';
-@import 'styles/typography';
+@import 'styles/_variables.scss';
+@import 'styles/_placeholders.scss';
+@import 'styles/_fonts.scss';
+@import 'styles/_colours.scss';
+@import 'styles/_theme.scss';
+@import 'styles/_typography.scss';
 
 html * {
   @extend %lato;

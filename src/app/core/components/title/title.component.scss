@@ -1,5 +1,4 @@
-@import '../../../../styles/_variables.scss';
-@import '../../../../styles/_theme.scss';
+@import '../../../../styles.scss';
 
 .title {
   color: lighten(mat-color($ac-app-primary), 30%);
