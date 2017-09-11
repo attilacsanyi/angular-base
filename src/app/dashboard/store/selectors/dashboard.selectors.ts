@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 
-import { AppState } from 'app/app.state';
+import { AppState } from '../../../../app/app.state';
 
 import * as states from '../../../dashboard/store/states';
 
