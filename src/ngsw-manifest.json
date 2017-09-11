@@ -1,0 +1,20 @@
+{
+  "dynamic": {
+    "group": [
+      {
+        "name": "firebase",
+        "urls": {
+          "https://ac-angular-base.firebaseapp.com/": {
+            "match": "prefix"
+          }
+        },
+        "cache": {
+          "optimizeFor": "performance",
+          "maxAgeMs": 3600000,
+          "maxEntries": 20,
+          "strategy": "lru"
+        }
+      }
+    ]
+  }
+}
