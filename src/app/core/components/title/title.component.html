@@ -13,21 +13,30 @@
   </div>
 
   <!-- Title -->
-  <span fxFlex></span> <span class="title"> {{title | uppercase}}</span><span fxFlex></span>
+  <span fxFlex></span>
+  <span class="title" fxHide.xs> {{title | uppercase}}</span>
+  <span fxFlex></span>
 
   <div fxLayoutGap="15px">
-    <!-- User -->
     <ng-container *ngIf="user$ | async as user; else anonymous">
-      <button md-raised-button color="primary">
-      <md-icon>account_circle</md-icon> {{ user.name }} ({{user.age}})
-  <!-- Logout -->
-    </button>
-      <button md-raised-button (click)="logout()" color="primary"><md-icon>power_settings_new</md-icon></button>
+      <!-- User -->
+      <a md-mini-fab [mdMenuTriggerFor]="menu" color="primary">
+        <md-icon>account_circle</md-icon>
+      </a>
+      <md-menu #menu="mdMenu">
+        <button md-menu-item> {{ user.name }} ({{user.age}})</button>
+      </md-menu>
+      <!-- Logout -->
+      <a md-mini-fab (click)="logout()" color="primary">
+        <md-icon>power_settings_new</md-icon>
+      </a>
     </ng-container>
 
     <ng-template #anonymous>
       <!-- Login -->
-      <button md-raised-button (click)="login()" color="primary"><md-icon>fingerprint</md-icon></button>
+      <a md-mini-fab (click)="login()" color="primary">
+        <md-icon>fingerprint</md-icon>
+      </a>
     </ng-template>
   </div>
 
