@@ -1,3 +1,4 @@
+/* tslint:disable:no-access-missing-member*/
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { routerSlideToLeftAnimation } from './shared/animations';
 
