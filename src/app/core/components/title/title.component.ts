@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, VERSION } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
@@ -20,6 +20,7 @@ export class TitleComponent implements OnInit {
   @Input() title: string;
 
   user$: Observable<models.User>;
+  ngVersion = VERSION.full;
 
   constructor(
     private store$: Store<AppState>
