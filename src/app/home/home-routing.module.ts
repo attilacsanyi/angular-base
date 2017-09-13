@@ -9,7 +9,7 @@ export const routingComponents = [
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent,
+    path: '', component: HomeComponent, data: { state: 'home' }
   },
 ];
 

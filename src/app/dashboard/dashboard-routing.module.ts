@@ -10,7 +10,7 @@ export const routingComponents = [
 
 const routes: Routes = [
   {
-    path: '', component: DashboardComponent, resolve: { population: DashboardResolver }
+    path: '', component: DashboardComponent, resolve: { population: DashboardResolver }, data: { state: 'dashboard' }
   },
 ];
 
