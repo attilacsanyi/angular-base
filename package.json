@@ -6,7 +6,7 @@
     "lite-server": "lite-server",
     "build": "ng build",
     "build-prod": "ng build --prod --build-optimizer",
-    "ci": "npm run lint && npm run test && npm run build-prod",
+    "ci": "npm run lint && npm run test && npm run build-prod && npm run ngu",
     "prod": "npm run ci && npm run lite-server",
     "ng": "ng",
     "start": "ng serve --host localhost --port 5201",
