@@ -1,13 +1,13 @@
-<md-toolbar fxLayout="column" color="primary">
+<mat-toolbar fxLayout="column" color="primary">
   <div fxLayoutGap="15px">
     <!-- Home -->
-    <a md-mini-fab routerLink="home" routerLinkActive #rlaHome="routerLinkActive" [color]="rlaHome.isActive ? 'accent' : 'default'">
-      <md-icon>home</md-icon>
+    <a mat-mini-fab routerLink="home" routerLinkActive #rlaHome="routerLinkActive" [color]="rlaHome.isActive ? 'accent' : 'default'">
+      <mat-icon>home</mat-icon>
     </a>
 
     <!-- Dashboard -->
-    <a md-mini-fab routerLink="dashboard" routerLinkActive #rlaDashboard="routerLinkActive" [color]="rlaDashboard.isActive ? 'accent' : 'default'">
-      <md-icon>dashboard</md-icon>
+    <a mat-mini-fab routerLink="dashboard" routerLinkActive #rlaDashboard="routerLinkActive" [color]="rlaDashboard.isActive ? 'accent' : 'default'">
+      <mat-icon>dashboard</mat-icon>
     </a>
 
   </div>
@@ -20,25 +20,25 @@
   <div fxLayoutGap="15px">
     <ng-container *ngIf="user$ | async as user; else anonymous">
       <!-- User -->
-      <a md-mini-fab [mdMenuTriggerFor]="menu" color="primary">
-        <md-icon>account_circle</md-icon>
+      <a mat-mini-fab [matMenuTriggerFor]="menu" color="primary">
+        <mat-icon>account_circle</mat-icon>
       </a>
-      <md-menu #menu="mdMenu">
-        <button md-menu-item> {{ user.name }} ({{user.age}})</button>
-      </md-menu>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item> {{ user.name }} ({{user.age}})</button>
+      </mat-menu>
       <!-- Logout -->
-      <a md-mini-fab (click)="logout()" color="primary">
-        <md-icon>power_settings_new</md-icon>
+      <a mat-mini-fab (click)="logout()" color="primary">
+        <mat-icon>power_settings_new</mat-icon>
       </a>
     </ng-container>
 
     <ng-template #anonymous>
       <!-- Login -->
-      <a md-mini-fab (click)="login()" color="primary">
-        <md-icon>fingerprint</md-icon>
+      <a mat-mini-fab (click)="login()" color="primary">
+        <mat-icon>fingerprint</mat-icon>
       </a>
     </ng-template>
   </div>
 
 
-</md-toolbar>
+</mat-toolbar>

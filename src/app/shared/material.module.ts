@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import {
-  MdCardModule, MdIconModule, MdTabsModule, MdButtonModule, MdButtonToggleModule, MdCheckboxModule, MdDialogModule, MdInputModule,
-  MdToolbarModule, MdSidenavModule, MdListModule, MdProgressBarModule, MdChipsModule, MdSelectModule, MdGridListModule,
-  MdSnackBarModule, MdMenuModule, MdDatepickerModule, MdNativeDateModule, DateAdapter,
+  MatCardModule, MatIconModule, MatTabsModule, MatButtonModule, MatButtonToggleModule, MatCheckboxModule, MatDialogModule, MatInputModule,
+  MatToolbarModule, MatSidenavModule, MatListModule, MatProgressBarModule, MatChipsModule, MatSelectModule, MatGridListModule,
+  MatSnackBarModule, MatMenuModule, MatDatepickerModule, MatNativeDateModule,
+  MATERIAL_COMPATIBILITY_MODE, MAT_DATE_LOCALE
 } from '@angular/material';
-// For supporting gestures
 
 const materialModules = [
-  MdCardModule, MdIconModule, MdTabsModule, MdButtonModule, MdButtonToggleModule, MdCheckboxModule, MdDialogModule, MdInputModule,
-  MdToolbarModule, MdSidenavModule, MdListModule, MdProgressBarModule, MdChipsModule, MdSelectModule, MdGridListModule,
-  MdSnackBarModule, MdMenuModule, MdDatepickerModule, MdNativeDateModule,
+  MatCardModule, MatIconModule, MatTabsModule, MatButtonModule, MatButtonToggleModule, MatCheckboxModule, MatDialogModule, MatInputModule,
+  MatToolbarModule, MatSidenavModule, MatListModule, MatProgressBarModule, MatChipsModule, MatSelectModule, MatGridListModule,
+  MatSnackBarModule, MatMenuModule, MatDatepickerModule, MatNativeDateModule,
 ];
 
 @NgModule({
   exports: [...materialModules],
+  providers: [
+    { provide: MATERIAL_COMPATIBILITY_MODE, useValue: true },
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+  ]
 })
 export class MaterialModule {
-  constructor(private dateAdapter: DateAdapter<Date>) {
-    // ISSUE: https://stackoverflow.com/questions/44238116/angular2-material-2-datepicker-output-date-formats
-    this.dateAdapter.setLocale('en-GB');
-  }
 }
