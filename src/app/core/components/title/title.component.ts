@@ -1,3 +1,4 @@
+/* tslint:disable:no-access-missing-member*/
 import { Component, OnInit, Input, ChangeDetectionStrategy, VERSION } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
