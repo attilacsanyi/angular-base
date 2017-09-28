@@ -45,3 +45,6 @@ jobs:
 
       # PWA
       - run: yarn ngu
+
+      # Deploying
+      - run: yarn deploy
