@@ -21,7 +21,7 @@
     "ngu-app-shell": "./node_modules/.bin/ngu-app-shell --module src/app/app.module.ts --url /loading --insert-module src/app/loading/loading.module.ts --out dist/index.html",
     "ngu-sw-manifest": "./node_modules/.bin/ngu-sw-manifest --module src/app/app.module.ts --out dist/ngsw-manifest.json",
     "ngu-firebase-push": "./node_modules/.bin/ngu-firebase-push --module src/app/app.module.ts --out firebase.json --in firebase-config.json",
-    "deploy": "npm run ngu && ./node_modules/.bin/firebase deploy --token=1/1k0aR9e4CE3hrBL3ZIAFkfGuNYrDyhjL2jSlZ0IlO2Y --non-interactive"
+    "deploy": "npm run ngu && ./node_modules/.bin/firebase deploy"
   },
   "private": true,
   "dependencies": {
