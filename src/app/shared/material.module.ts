@@ -4,7 +4,6 @@ import {
   MdToolbarModule, MdSidenavModule, MdListModule, MdProgressBarModule, MdChipsModule, MdSelectModule, MdGridListModule,
   MdSnackBarModule, MdMenuModule, MdDatepickerModule, MdNativeDateModule, DateAdapter,
 } from '@angular/material';
-// For supporting gestures
 
 const materialModules = [
   MdCardModule, MdIconModule, MdTabsModule, MdButtonModule, MdButtonToggleModule, MdCheckboxModule, MdDialogModule, MdInputModule,
