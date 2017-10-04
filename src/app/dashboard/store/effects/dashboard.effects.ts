@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Action } from '@ngrx/store';
-import { Effect } from '@ngrx/effects';
 import { defer } from 'rxjs/observable/defer';
+import { Observable } from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { of } from 'rxjs/observable/of';
+import { Effect } from '@ngrx/effects';
+import { Action } from '@ngrx/store';
 
 import * as actions from '../../../dashboard/store/actions';
 
@@ -10,7 +11,7 @@ import * as actions from '../../../dashboard/store/actions';
 export class DashboardEffectsService {
 
   @Effect()
-  init$: Observable<Action> = defer(() => Observable.of(new actions.LoadTitleAction('This is the initial Dashboard title from store')));
+  init$: Observable<Action> = defer(() => of(new actions.LoadTitleAction('This is the initial Dashboard title from store')));
 
   constructor() { }
 }

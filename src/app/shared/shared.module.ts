@@ -1,5 +1,3 @@
-// Add the RxJS Observable operators we need in this app.
-import './rxjs-operators';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';

@@ -3,6 +3,9 @@
     "node_modules/codelyzer",
     "tslint-consistent-codestyle"
   ],
+  "extends": [
+    "rxjs-tslint-rules"
+  ],
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
@@ -235,6 +238,18 @@
       "member-access" // forces an access modifier for every parameter property
     ],
     "prefer-const-enum": true,
-    "prefer-while": true
+    "prefer-while": true,
+    "rxjs-no-add": {
+      "severity": "error"
+    },
+    "rxjs-no-operator": {
+      "severity": "error"
+    },
+    "rxjs-no-patched": {
+      "severity": "error"
+    },
+    "rxjs-no-wholesale": {
+      "severity": "error"
+    }
   }
 }

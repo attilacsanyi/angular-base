@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
+import { take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 import { AppState } from '../../app.state';
@@ -15,7 +16,7 @@ export class DashboardResolver implements Resolve<string> {
 
   resolve(): Observable<string> {
     this.loadTitle();
-    return this.titleSelector().take(1);
+    return this.titleSelector().pipe(take(1));
   }
 
   public titleSelector() {
