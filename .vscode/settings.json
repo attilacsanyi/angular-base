@@ -17,6 +17,5 @@
   "window.title": "${rootName}${separator}${activeEditorLong} ${dirty}",
   "editor.formatOnSave": true,
   "files.autoSave": "onFocusChange",
-  "typescript.implementationsCodeLens.enabled": true,
-  "vsicons.presets.angular": true
+  "typescript.implementationsCodeLens.enabled": true
 }
