@@ -83,6 +83,9 @@
   },
   "jest": {
     "preset": "jest-preset-angular",
-    "setupTestFrameworkScriptFile": "<rootDir>/jest/jest-setup.ts"
+    "setupTestFrameworkScriptFile": "<rootDir>/jest/jest-setup.ts",
+    "coverageReporters": [
+      "lcov"
+    ]
   }
 }
