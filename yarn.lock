@@ -8442,12 +8442,12 @@ tslib@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
 
-tslint-consistent-codestyle@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/tslint-consistent-codestyle/-/tslint-consistent-codestyle-1.6.0.tgz#e42f5fd1d5bd4ffa697386ec8a41ed2cb6812aaf"
+tslint-consistent-codestyle@1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/tslint-consistent-codestyle/-/tslint-consistent-codestyle-1.8.0.tgz#ede0b5ec6777f8ff4426d9838bc9bf18e8174480"
   dependencies:
     tslib "^1.7.1"
-    tsutils "^2.6.1"
+    tsutils "^2.12.0"
 
 tslint@5.7.0:
   version "5.7.0"
@@ -8464,9 +8464,9 @@ tslint@5.7.0:
     tslib "^1.7.1"
     tsutils "^2.8.1"
 
-tsutils@^2.6.1:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.10.0.tgz#ae94511df2656eb06e4424056fba5c388887040c"
+tsutils@^2.12.0:
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.12.1.tgz#f4d95ce3391c8971e46e54c4cf0edb0a21dd5b24"
   dependencies:
     tslib "^1.7.1"
 

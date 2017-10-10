@@ -214,6 +214,7 @@
         "format": "PascalCase"
       }
     ],
+    "const-parameters": true,
     "early-exit": [
       true,
       {
@@ -221,17 +222,20 @@
       }
     ],
     "no-angle-bracket-type-assertion": true,
-    "no-collapsible-if": "true",
-    "no-unnecessary-else": "true",
+    "no-collapsible-if": true,
+    "no-unnecessary-else": true,
     "no-return-undefined": [
-      "true",
+      true,
       {
         "allow-void-expression": true
       }
     ],
-    "no-unused": "true",
-    "no-var-before-return": "true",
-    "object-shorthand-properties-first": "true",
+    "no-unused": [
+      true,
+      "unused-catch-binding"
+    ],
+    "no-var-before-return": true,
+    "object-shorthand-properties-first": true,
     "parameter-properties": [
       true,
       "leading", // forces parameter properties to precede regular parameters
