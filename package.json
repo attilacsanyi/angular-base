@@ -6,8 +6,7 @@
     "lite-server": "lite-server",
     "build": "ng build",
     "build-prod": "ng build --prod --build-optimizer",
-    "ci":
-      "npm run lint && npm run ci-test && npm run build-prod && npm run ngu",
+    "ci": "npm run lint && npm run ci-test && npm run build-prod && npm run ngu",
     "prod": "npm run ci && npm run lite-server",
     "ci-test": "jest --coverage",
     "ng": "ng",
@@ -20,12 +19,10 @@
     "e2e": "ng e2e",
     "docs":
       "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./docs -t --theme stripe --disableCoverage --hideGenerator -n \"Angular Base Documentation\"",
-    "ngu":
-      "npm run ngu-app-shell && npm run ngu-sw-manifest && npm run ngu-firebase-push",
+    "ngu": "npm run ngu-app-shell && npm run ngu-sw-manifest && npm run ngu-firebase-push",
     "ngu-app-shell":
       "./node_modules/.bin/ngu-app-shell --module src/app/app.module.ts --url /loading --insert-module src/app/loading/loading.module.ts --out dist/index.html",
-    "ngu-sw-manifest":
-      "./node_modules/.bin/ngu-sw-manifest --module src/app/app.module.ts --out dist/ngsw-manifest.json",
+    "ngu-sw-manifest": "./node_modules/.bin/ngu-sw-manifest --module src/app/app.module.ts --out dist/ngsw-manifest.json",
     "ngu-firebase-push":
       "./node_modules/.bin/ngu-firebase-push --module src/app/app.module.ts --out firebase.json --in firebase-config.json",
     "deploy": "npm run ngu && ./node_modules/.bin/firebase deploy"
@@ -90,13 +87,7 @@
   "jest": {
     "preset": "jest-preset-angular",
     "setupTestFrameworkScriptFile": "<rootDir>/jest/jest-setup.ts",
-    "collectCoverageFrom": [
-      "src/**/*.ts",
-      "!jest",
-      "!src/*.ts",
-      "!src/**/*.d.ts",
-      "!src/**/index.ts"
-    ],
+    "collectCoverageFrom": ["src/**/*.ts", "!jest", "!src/*.ts", "!src/**/*.d.ts", "!src/**/index.ts"],
     "coverageReporters": ["html"]
   }
 }

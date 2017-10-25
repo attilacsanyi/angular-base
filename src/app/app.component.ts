@@ -1,7 +1,8 @@
-/* tslint:disable:no-access-missing-member*/
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
 import { routerSlideToLeftAnimation } from './shared/animations';
 
+/* tslint:disable:no-access-missing-member*/
 @Component({
   moduleId: module.id,
   selector: 'ac-root',
@@ -13,6 +14,5 @@ import { routerSlideToLeftAnimation } from './shared/animations';
 export class AppComponent implements OnInit {
   title = 'Angular Base';
 
-  ngOnInit() { }
-
+  ngOnInit() {}
 }

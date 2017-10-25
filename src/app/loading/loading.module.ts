@@ -6,4 +6,4 @@ import { LoadingRoutingModule, routingComponents } from './loading-routing.modul
   declarations: [...routingComponents],
   imports: [LoadingRoutingModule]
 })
-export class LoadingModule { }
+export class LoadingModule {}

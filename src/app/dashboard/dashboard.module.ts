@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
+
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { SharedModule } from '../shared/shared.module';
 
 import { DashboardResolver } from '../dashboard/services';
-import * as reducers from '../dashboard/store/reducers';
 import * as effects from '../dashboard/store/effects';
+import * as reducers from '../dashboard/store/reducers';
 import * as states from '../dashboard/store/states';
-
 import { DashboardRoutingModule, routingComponents } from './dashboard-routing.module';
 
 @NgModule({
@@ -24,4 +24,4 @@ import { DashboardRoutingModule, routingComponents } from './dashboard-routing.m
   declarations: [...routingComponents],
   providers: [DashboardResolver]
 })
-export class DashboardModule { }
+export class DashboardModule {}

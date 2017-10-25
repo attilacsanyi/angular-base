@@ -1,18 +1,51 @@
 import { NgModule } from '@angular/core';
 import {
-  MdCardModule, MdIconModule, MdTabsModule, MdButtonModule, MdButtonToggleModule, MdCheckboxModule, MdDialogModule, MdInputModule,
-  MdToolbarModule, MdSidenavModule, MdListModule, MdProgressBarModule, MdChipsModule, MdSelectModule, MdGridListModule,
-  MdSnackBarModule, MdMenuModule, MdDatepickerModule, MdNativeDateModule, DateAdapter,
+    DateAdapter,
+    MdButtonModule,
+    MdButtonToggleModule,
+    MdCardModule,
+    MdCheckboxModule,
+    MdChipsModule,
+    MdDatepickerModule,
+    MdDialogModule,
+    MdGridListModule,
+    MdIconModule,
+    MdInputModule,
+    MdListModule,
+    MdMenuModule,
+    MdNativeDateModule,
+    MdProgressBarModule,
+    MdSelectModule,
+    MdSidenavModule,
+    MdSnackBarModule,
+    MdTabsModule,
+    MdToolbarModule,
 } from '@angular/material';
 
 const materialModules = [
-  MdCardModule, MdIconModule, MdTabsModule, MdButtonModule, MdButtonToggleModule, MdCheckboxModule, MdDialogModule, MdInputModule,
-  MdToolbarModule, MdSidenavModule, MdListModule, MdProgressBarModule, MdChipsModule, MdSelectModule, MdGridListModule,
-  MdSnackBarModule, MdMenuModule, MdDatepickerModule, MdNativeDateModule,
+  MdCardModule,
+  MdIconModule,
+  MdTabsModule,
+  MdButtonModule,
+  MdButtonToggleModule,
+  MdCheckboxModule,
+  MdDialogModule,
+  MdInputModule,
+  MdToolbarModule,
+  MdSidenavModule,
+  MdListModule,
+  MdProgressBarModule,
+  MdChipsModule,
+  MdSelectModule,
+  MdGridListModule,
+  MdSnackBarModule,
+  MdMenuModule,
+  MdDatepickerModule,
+  MdNativeDateModule
 ];
 
 @NgModule({
-  exports: [...materialModules],
+  exports: [...materialModules]
 })
 export class MaterialModule {
   constructor(private dateAdapter: DateAdapter<Date>) {

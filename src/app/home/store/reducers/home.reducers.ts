@@ -5,7 +5,6 @@ import * as states from '../../../home/store/states';
 
 export function reducer(state: states.State = states.initialState, action: actions.Actions) {
   switch (action.constructor) {
-
     case actions.LoadTitleAction:
       return handleLoadTitleAction(action as actions.LoadTitleAction, state);
 
@@ -16,6 +15,6 @@ export function reducer(state: states.State = states.initialState, action: actio
 
 function handleLoadTitleAction(action: actions.LoadTitleAction, state: states.State) {
   return assign(state, {
-    title: action.title,
+    title: action.title
   });
 }
