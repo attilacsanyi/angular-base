@@ -1,10 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
 import { Store } from '@ngrx/store';
 
-import { AppState } from '../../app.state';
+import { Observable } from 'rxjs/Observable';
 
 import * as selectors from '../../dashboard/store/selectors';
+
+import { AppState } from '../../app.state';
 
 @Component({
   moduleId: module.id,
@@ -14,15 +16,11 @@ import * as selectors from '../../dashboard/store/selectors';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit {
-
   title$: Observable<string>;
 
-  constructor(
-    private store$: Store<AppState>
-  ) { }
+  constructor(private store$: Store<AppState>) {}
 
   ngOnInit() {
     this.title$ = this.store$.select(selectors.getTitleState);
   }
-
 }

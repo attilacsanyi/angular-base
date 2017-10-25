@@ -4,8 +4,7 @@ const modulePrefix = '[Dashboard]';
 
 export class LoadTitleAction implements Action {
   readonly type = `${modulePrefix} Load title`;
-  constructor(public title: string) { }
+  constructor(public title: string) {}
 }
 
-export type Actions =
-  LoadTitleAction;
+export type Actions = LoadTitleAction;

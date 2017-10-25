@@ -4,7 +4,7 @@ namespace Singletons {
   export class UrlSerialiser {
     private static singleton: DefaultUrlSerializer;
 
-    private constructor() { }
+    private constructor() {}
 
     static get instance() {
       if (this.singleton === null || this.singleton === undefined) this.singleton = new DefaultUrlSerializer();

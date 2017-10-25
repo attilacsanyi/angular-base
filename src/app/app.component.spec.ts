@@ -1,26 +1,31 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppComponent } from './app.component';
 import { TestModule } from './../test.module';
+import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [TestModule],
-      declarations: [AppComponent]
-    }).compileComponents();
-  }));
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        imports: [TestModule],
+        declarations: [AppComponent]
+      }).compileComponents();
+    })
+  );
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-  it(`should have as title 'Angular Base'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Angular Base');
-  }));
+  it('should create the app', () => {
+    expect(component).toBeTruthy();
+  });
 
+  it(`should have as title 'Angular Base'`, () => {
+    expect(component.title).toEqual('Angular Base');
+  });
 });

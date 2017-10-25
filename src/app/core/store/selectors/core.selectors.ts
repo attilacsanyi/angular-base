@@ -1,8 +1,8 @@
 import { createSelector } from '@ngrx/store';
 
-import { AppState } from '../../../../app/app.state';
-
 import * as states from '../../../core/store/states';
+
+import { AppState } from '../../../../app/app.state';
 
 const getCoreState = (state: AppState) => state.core;
 

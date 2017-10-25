@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, PreloadAllModules, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { environment } from '../environments/environment';
 
@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: 'home', loadChildren: 'app/home/home.module#HomeModule' },
   { path: 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule' },
 
-  { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
@@ -21,7 +21,8 @@ export const routes: Routes = [
 
       // Preload all Lazy modules while the user start navigating the app
       preloadingStrategy: PreloadAllModules
-    })],
+    })
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

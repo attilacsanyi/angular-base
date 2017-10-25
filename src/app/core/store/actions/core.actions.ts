@@ -6,23 +6,22 @@ const modulePrefix = '[Core]';
 
 export class LoginAction implements Action {
   readonly type = `${modulePrefix} Login`;
-  constructor(public username: string, public password: string) { }
+  constructor(public username: string, public password: string) {}
 }
 
 export class LoginSuccessAction implements Action {
   readonly type = `${modulePrefix} Login Success`;
-  constructor(public payload: User) { }
+  constructor(public payload: User) {}
 }
 
 export class LoginFailedAction implements Action {
   readonly type = `${modulePrefix} Login Failed`;
-  constructor(public error: string) { }
+  constructor(public error: string) {}
 }
 
 export class LogoutAction implements Action {
   readonly type = `${modulePrefix} Logout`;
-  constructor() { }
+  constructor() {}
 }
 
-export type Actions =
-  LoginAction | LoginSuccessAction | LoginFailedAction | LogoutAction;
+export type Actions = LoginAction | LoginSuccessAction | LoginFailedAction | LogoutAction;

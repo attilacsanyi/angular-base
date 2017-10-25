@@ -1,9 +1,12 @@
-// Place your settings in this file to overwrite default and user settings.
 {
+  // Place your settings in this file to overwrite default and user settings.
+  // Files
   "files.exclude": {
     "**/.git": true,
     "**/.DS_Store": true
   },
+  "files.autoSave": "onFocusChange",
+  // Search
   "search.exclude": {
     ".vscode": true,
     "coverage": true,
@@ -13,9 +16,29 @@
     "**/*.d.ts": true,
     "**/*.js": true
   },
+  // Typescript
   "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.implementationsCodeLens.enabled": true,
+  // Editor
   "window.title": "${rootName}${separator}${activeEditorLong} ${dirty}",
   "editor.formatOnSave": true,
-  "files.autoSave": "onFocusChange",
-  "typescript.implementationsCodeLens.enabled": true
+  // Prettier
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 140,
+  // Typescripthero
+  "typescriptHero.resolver.organizeOnSave": true,
+  "typescriptHero.resolver.multiLineWrapThreshold": 140,
+  "typescriptHero.resolver.importGroups": [
+    "/angular/",
+    "/ngrx/",
+    "/rxjs/",
+    "Plains",
+    "Modules",
+    "/shared/",
+    "/core/",
+    "/dashboard/",
+    "/home/",
+    "Workspace"
+  ],
+  "typescriptHero.resolver.ignoreImportsForOrganize": ["lodash"]
 }

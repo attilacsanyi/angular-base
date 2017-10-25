@@ -5,5 +5,5 @@ export interface State {
 }
 
 export const initialState: State = {
-  user: undefined,
+  user: undefined
 };

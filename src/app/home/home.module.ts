@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { StoreModule } from '@ngrx/store';
+
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
 import { SharedModule } from '../shared/shared.module';
 
-import * as reducers from '../home/store/reducers';
 import * as effects from '../home/store/effects';
+import * as reducers from '../home/store/reducers';
 import * as states from '../home/store/states';
-
 import { HomeRoutingModule, routingComponents } from './home-routing.module';
 
 @NgModule({
@@ -22,4 +22,4 @@ import { HomeRoutingModule, routingComponents } from './home-routing.module';
   ],
   declarations: [...routingComponents]
 })
-export class HomeModule { }
+export class HomeModule {}

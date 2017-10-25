@@ -3,5 +3,5 @@ export interface State {
 }
 
 export const initialState: State = {
-  title: undefined,
+  title: undefined
 };
