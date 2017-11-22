@@ -44,7 +44,7 @@ jobs:
       - run: yarn build-prod
 
       # PWA
-      - run: yarn ngu
+      - run: yarn sw
 
       # Deploying
       - deploy:

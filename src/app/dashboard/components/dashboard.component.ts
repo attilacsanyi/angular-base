@@ -9,7 +9,6 @@ import * as selectors from '../../dashboard/store/selectors';
 import { AppState } from '../../app.state';
 
 @Component({
-  moduleId: module.id,
   selector: 'ac-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],

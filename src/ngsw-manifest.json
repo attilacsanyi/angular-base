@@ -1,4 +1,29 @@
 {
+  "external": {
+    "urls": [
+      { "url": "https://fonts.gstatic.com/s/lato/v14/MDadn8DQ_3oT6kvnUq_2r_esZW2xOQ-xsNqO47m55DA.woff2" },
+      { "url": "https://fonts.googleapis.com/css?family=Lato:300,400,700" },
+      { "url": "https://fonts.googleapis.com/icon?family=Material+Icons" },
+      { "url": "https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2" }
+    ]
+  },
+  "routing": {
+    "index": "/index.html",
+    "routes": {
+      "/": {
+        "match": "exact"
+      },
+      "/home": {
+        "match": "exact"
+      },
+      "/dashboard": {
+        "match": "exact"
+      },
+      "^/.*$": {
+        "match": "regex"
+      }
+    }
+  },
   "dynamic": {
     "group": [
       {

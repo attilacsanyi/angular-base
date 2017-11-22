@@ -9,7 +9,6 @@ import * as selectors from '../../home/store/selectors';
 import { AppState } from '../../app.state';
 
 @Component({
-  moduleId: module.id,
   selector: 'ac-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
