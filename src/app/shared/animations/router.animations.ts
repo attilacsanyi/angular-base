@@ -9,10 +9,11 @@ export const routerSlideToLeftAnimation = trigger('routerTransition', [
   transition('* <=> *', [
     query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
     group([
-      query(':enter', [style({ transform: 'translateX(100%)' }), animate('0.5s ease-in-out', style({ transform: 'translateX(0%)' }))], {
+      query(':enter', [style({ left: '100%' }),
+      animate('0.5s ease-in-out', style({ left: '0%' }))], {
         optional: true
       }),
-      query(':leave', [style({ transform: 'translateX(0%)' }), animate('0.5s ease-in-out', style({ transform: 'translateX(-100%)' }))], {
+      query(':leave', [style({ left: '0%' }), animate('0.5s ease-in-out', style({ left: '-100%' }))], {
         optional: true
       })
     ])
@@ -26,10 +27,10 @@ export const routerSlideToTopAnimation = trigger('routerTransition', [
     group([
       query(
         ':enter',
-        [style({ transform: 'translateY(100%)' }), animate('0.5s ease-in-out', style({ transform: 'translateY(0%)', opacity: 1 }))],
+        [style({ top: '100%' }), animate('0.5s ease-in-out', style({ top: '0%', opacity: 1 }))],
         { optional: true }
       ),
-      query(':leave', [style({ transform: 'translateY(0%)' }), animate('0.5s ease-in-out', style({ transform: 'translateY(-100%)' }))], {
+      query(':leave', [style({ top: '0%' }), animate('0.5s ease-in-out', style({ top: '-100%' }))], {
         optional: true
       })
     ])

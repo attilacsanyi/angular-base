@@ -2,9 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { routerSlideToLeftAnimation } from './shared/animations';
 
-/* tslint:disable:no-access-missing-member*/
 @Component({
-  moduleId: module.id,
   selector: 'ac-root',
   animations: [routerSlideToLeftAnimation],
   templateUrl: './app.component.html',

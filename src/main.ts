@@ -9,6 +9,6 @@ import { environment } from './environments/environment';
 // https://material.angular.io/guide/getting-started#step-5-gesture-support
 if (environment.production) enableProdMode();
 
-platformBrowserDynamic().bootstrapModule(AppModule, {
-  preserveWhitespaces: false
-});
+platformBrowserDynamic()
+  .bootstrapModule(AppModule, { preserveWhitespaces: false })
+  .catch(err => console.log(err));

@@ -11,7 +11,6 @@ import * as selectors from '../../../core/store/selectors';
 import { AppState } from '../../../app.state';
 
 @Component({
-  moduleId: module.id,
   selector: 'ac-title',
   templateUrl: './title.component.html',
   styleUrls: ['./title.component.scss'],

@@ -1,55 +1,53 @@
 import { NgModule } from '@angular/core';
 import {
-    DateAdapter,
-    MdButtonModule,
-    MdButtonToggleModule,
-    MdCardModule,
-    MdCheckboxModule,
-    MdChipsModule,
-    MdDatepickerModule,
-    MdDialogModule,
-    MdGridListModule,
-    MdIconModule,
-    MdInputModule,
-    MdListModule,
-    MdMenuModule,
-    MdNativeDateModule,
-    MdProgressBarModule,
-    MdSelectModule,
-    MdSidenavModule,
-    MdSnackBarModule,
-    MdTabsModule,
-    MdToolbarModule,
+    MAT_DATE_LOCALE,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatProgressBarModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSnackBarModule,
+    MatTabsModule,
+    MatToolbarModule,
 } from '@angular/material';
 
 const materialModules = [
-  MdCardModule,
-  MdIconModule,
-  MdTabsModule,
-  MdButtonModule,
-  MdButtonToggleModule,
-  MdCheckboxModule,
-  MdDialogModule,
-  MdInputModule,
-  MdToolbarModule,
-  MdSidenavModule,
-  MdListModule,
-  MdProgressBarModule,
-  MdChipsModule,
-  MdSelectModule,
-  MdGridListModule,
-  MdSnackBarModule,
-  MdMenuModule,
-  MdDatepickerModule,
-  MdNativeDateModule
+  MatCardModule,
+  MatIconModule,
+  MatTabsModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatInputModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  MatListModule,
+  MatProgressBarModule,
+  MatChipsModule,
+  MatSelectModule,
+  MatGridListModule,
+  MatSnackBarModule,
+  MatMenuModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatExpansionModule
 ];
 
 @NgModule({
-  exports: [...materialModules]
+  exports: [...materialModules],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }]
 })
-export class MaterialModule {
-  constructor(private dateAdapter: DateAdapter<Date>) {
-    // ISSUE: https://stackoverflow.com/questions/44238116/angular2-material-2-datepicker-output-date-formats
-    this.dateAdapter.setLocale('en-GB');
-  }
-}
+export class MaterialModule {}
