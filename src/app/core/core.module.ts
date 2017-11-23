@@ -1,9 +1,13 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { RouterStateSerializer } from '@ngrx/router-store';
+
 import { SharedModule } from '../shared/shared.module';
 
 import { TitleComponent } from '../core/components';
+
+import * as states from './store/states';
 
 // Components
 @NgModule({
@@ -18,7 +22,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: []
+      providers: [{ provide: RouterStateSerializer, useClass: states.PcgRouterStateSerializer }]
     };
   }
 
