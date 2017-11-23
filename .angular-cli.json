@@ -5,7 +5,7 @@
   },
   "apps": [
     {
-      "serviceWorker": true,
+      "serviceWorker": false,
       "root": "src",
       "outDir": "dist",
       "assets": ["assets", "favicon.ico", "manifest.json"],
