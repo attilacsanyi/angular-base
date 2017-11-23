@@ -24,4 +24,4 @@ export class LogoutAction implements Action {
   constructor() {}
 }
 
-export type Actions = LoginAction | LoginSuccessAction | LoginFailedAction | LogoutAction;
+export type CoreActions = LoginAction | LoginSuccessAction | LoginFailedAction | LogoutAction;
