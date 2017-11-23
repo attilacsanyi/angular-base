@@ -3,7 +3,7 @@ import { assign } from '../../../shared/utils';
 import * as actions from '../../../core/store/actions';
 import * as states from '../../../core/store/states';
 
-export function reducer(state: states.State = states.initialState, action: actions.Actions) {
+export function reducer(state: states.State = states.initialState, action: actions.CoreActions) {
   switch (action.constructor) {
     case actions.LoginSuccessAction:
       return handleLoginSuccessAction(action as actions.LoginSuccessAction, state);
