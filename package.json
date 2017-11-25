@@ -75,10 +75,10 @@
     "lite-server": "2.3.0",
     "ng-pwa-tools": "0.0.15",
     "protractor": "5.2.0",
-    "rxjs-tslint-rules": "3.1.1",
+    "rxjs-tslint-rules": "3.1.2",
     "ts-node": "3.3.0",
     "tslint": "5.8.0",
-    "tslint-consistent-codestyle": "1.10.0",
+    "tslint-consistent-codestyle": "1.10.1",
     "typescript": "2.4.2"
   },
   "jest": {
