@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { EffectsModule } from '@ngrx/effects';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -18,6 +19,7 @@ import { initialState } from './app.state';
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'angular-base' }),
+    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
     CoreModule.forRoot(),
 
     // ngrx
