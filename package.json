@@ -19,7 +19,7 @@
     "e2e": "ng e2e",
     "docs":
       "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./docs -t --theme stripe --disableCoverage --hideGenerator -n \"Angular Base Documentation\"",
-    "deploy": "npm run sw && ./node_modules/.bin/firebase deploy"
+    "deploy": "./node_modules/.bin/firebase deploy"
   },
   "private": true,
   "dependencies": {
