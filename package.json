@@ -6,7 +6,7 @@
     "lite-server": "lite-server",
     "build": "ng build",
     "build-prod": "ng build --prod --named-chunks --sourcemaps",
-    "ci": "npm run lint && npm run ci-test && npm run build-prod && npm run sw",
+    "ci": "npm run lint && npm run ci-test && npm run build-prod",
     "prod": "npm run ci && npm run lite-server",
     "ci-test": "jest --coverage",
     "ng": "ng",
@@ -19,10 +19,7 @@
     "e2e": "ng e2e",
     "docs":
       "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./docs -t --theme stripe --disableCoverage --hideGenerator -n \"Angular Base Documentation\"",
-    "sw": "npm run sw-manifest && npm run sw-copy",
-    "sw-manifest": "./node_modules/.bin/ngu-sw-manifest --dist dist --in src/ngsw-manifest.json --out dist/ngsw-manifest.json",
-    "sw-copy": "cp node_modules/@angular/service-worker/bundles/worker-basic.min.js dist/",
-    "deploy": "npm run sw && ./node_modules/.bin/firebase deploy"
+    "deploy": "./node_modules/.bin/firebase deploy"
   },
   "private": true,
   "dependencies": {
@@ -38,7 +35,7 @@
     "@angular/platform-browser": "5.0.3",
     "@angular/platform-browser-dynamic": "5.0.3",
     "@angular/router": "5.0.3",
-    "@angular/service-worker": "1.0.0-beta.16",
+    "@angular/service-worker": "5.0.3",
     "@ngrx/effects": "4.1.1",
     "@ngrx/router-store": "4.1.1",
     "@ngrx/store": "4.1.1",
@@ -51,7 +48,7 @@
     "zone.js": "0.8.18"
   },
   "devDependencies": {
-    "@angular/cli": "1.5.2",
+    "@angular/cli": "1.6.0-rc.0",
     "@angular/compiler-cli": "5.0.3",
     "@angular/language-service": "5.0.3",
     "@angular/platform-server": "5.0.3",
@@ -73,12 +70,11 @@
     "karma-jasmine": "1.1.0",
     "karma-jasmine-html-reporter": "0.2.2",
     "lite-server": "2.3.0",
-    "ng-pwa-tools": "0.0.15",
     "protractor": "5.2.0",
-    "rxjs-tslint-rules": "3.1.1",
+    "rxjs-tslint-rules": "3.1.2",
     "ts-node": "3.3.0",
     "tslint": "5.8.0",
-    "tslint-consistent-codestyle": "1.10.0",
+    "tslint-consistent-codestyle": "1.10.1",
     "typescript": "2.4.2"
   },
   "jest": {
