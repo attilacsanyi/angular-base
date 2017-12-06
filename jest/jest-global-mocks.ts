@@ -17,3 +17,17 @@ Object.defineProperty(window, 'getComputedStyle', {
 
 Object.defineProperty(window, 'matchMedia', { value: () => ({ matches: true }) });
 Object.defineProperty(window, 'CSS', { value: '' });
+
+/**
+ * ISSUE: The animation trigger "transitionMessages" has failed to build due to the following errors:
+ *         - The provided animation property "transform" is not a supported CSS property for animations
+ * https://github.com/angular/material2/issues/7101
+ */
+Object.defineProperty(document.body.style, 'transform', {
+  value: () => {
+    return {
+      enumerable: true,
+      configurable: true
+    };
+  }
+});
