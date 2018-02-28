@@ -7,6 +7,7 @@ import { RouterStateSerializer } from '@ngrx/router-store';
 import { SharedModule } from '@shared/shared.module';
 
 import { components, TitleComponent } from '@core/components';
+import { services } from '@core/services';
 import { AppRouterStateSerializer } from '@core/store/reducers/router.reducer';
 
 // Components
@@ -24,7 +25,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [{ provide: RouterStateSerializer, useClass: AppRouterStateSerializer }]
+      providers: [{ provide: RouterStateSerializer, useClass: AppRouterStateSerializer }, ...services]
     };
   }
 

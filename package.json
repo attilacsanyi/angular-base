@@ -12,7 +12,7 @@
     "prod": "npm run ci-prod && npm run lite-server",
     "ng": "ng",
     "start": "ng serve --aot --host localhost --port 5201",
-    "start-prod": "ng serve --aot -e prod --host localhost --port 5201",
+    "start-prod": "ng serve --aot -e prod --host localhost --port 6201",
     "lint": "ng lint --type-check",
     "lint-fix": "ng lint --fix --type-check",
     "test": "jest",

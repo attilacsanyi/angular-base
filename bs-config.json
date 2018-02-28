@@ -1,5 +1,5 @@
 {
-  "port": 5201,
+  "port": 6201,
   "open": false,
   "server": {
     "baseDir": "./dist"
