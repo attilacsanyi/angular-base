@@ -8,7 +8,22 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
+    "noImplicitThis": false,
+    "noImplicitReturns": true,
+    "strict": true,
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"]
+    "lib": ["es2017", "dom"],
+    "baseUrl": "./src",
+    "paths": {
+      "@env": ["environments/environment"],
+      "@core/*": ["app/core/*"],
+      "@shared/*": ["app/shared/*"],
+      "@home/*": ["app/home/*"],
+      "@dashboard/*": ["app/dashboard/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "preserveWhitespaces": false
   }
 }

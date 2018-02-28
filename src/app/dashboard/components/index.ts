@@ -1,1 +1,2 @@
-export * from './dashboard.component';
+export const components = [];
+export const pipes = [];

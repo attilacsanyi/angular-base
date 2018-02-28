@@ -1,9 +1,8 @@
 import { createSelector } from '@ngrx/store';
 
-import * as states from '../../../dashboard/store/states';
+import * as fromFeature from '../reducers';
+import * as fromDashboard from '../reducers/dashboard.reducer';
 
-import { AppState } from '../../../../app/app.state';
+const getDashboardState = createSelector(fromFeature.getDashboardFeatureState, (state: fromFeature.DashboardState) => state.state);
 
-const getDashboardState = (state: AppState) => state.dashboard;
-
-export const getTitleState = createSelector(getDashboardState, (state: states.State) => state.title);
+export const getTitleState = createSelector(getDashboardState, fromDashboard.getTitleState);

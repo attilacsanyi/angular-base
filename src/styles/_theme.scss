@@ -1,4 +1,4 @@
-@import '../../node_modules/@angular/material/_theming.scss';
+@import '~@angular/material/_theming';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -10,10 +10,10 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
 $ac-app-primary: mat-palette($mat-indigo);
-$ac-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$ac-app-accent: mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$ac-app-warn:    mat-palette($mat-red);
+$ac-app-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $ac-app-theme: mat-light-theme($ac-app-primary, $ac-app-accent, $ac-app-warn);

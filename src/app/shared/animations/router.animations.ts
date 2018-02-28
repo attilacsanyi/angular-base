@@ -12,11 +12,11 @@ export const routerSlideToLeftAnimation = trigger('routerTransition', [
     group([
       query(':enter', [
         style({ transform: 'translateX(100%)' }),
-        animate('0.5s ease-in-out', style({ transform: 'translateX(0%)' }))
+        animate('0.5s cubic-bezier(.35,0,.25,1)', style({ transform: 'translateX(0%)' }))
       ], { optional: true }),
       query(':leave', [
         style({ transform: 'translateX(0%)' }),
-        animate('0.5s ease-in-out', style({ transform: 'translateX(-100%)' }))
+        animate('0.5s cubic-bezier(.35,0,.25,1)', style({ transform: 'translateX(-100%)' }))
       ], { optional: true }),
     ])
   ])
@@ -30,11 +30,11 @@ export const routerSlideToTopAnimation = trigger('routerTransition', [
     group([
       query(':enter', [
         style({ transform: 'translateY(100%)' }),
-        animate('0.5s ease-in-out', style({ transform: 'translateY(0%)', opacity: 1 }))
+        animate('0.5s cubic-bezier(.35,0,.25,1)', style({ transform: 'translateY(0%)', opacity: 1 }))
       ], { optional: true }),
       query(':leave', [
         style({ transform: 'translateY(0%)' }),
-        animate('0.5s ease-in-out', style({ transform: 'translateY(-100%)' }))
+        animate('0.5s cubic-bezier(.35,0,.25,1)', style({ transform: 'translateY(-100%)' }))
       ], { optional: true }),
     ])
   ])

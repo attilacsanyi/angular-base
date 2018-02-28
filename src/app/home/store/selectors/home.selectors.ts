@@ -1,9 +1,8 @@
 import { createSelector } from '@ngrx/store';
 
-import * as states from '../../../home/store/states';
+import * as fromFeature from '../reducers';
+import * as fromHome from '../reducers/home.reducer';
 
-import { AppState } from '../../../../app/app.state';
+const getHomeState = createSelector(fromFeature.getHomeFeatureState, (state: fromFeature.HomeState) => state.state);
 
-const getHomeState = (state: AppState) => state.home;
-
-export const getTitleState = createSelector(getHomeState, (state: states.State) => state.title);
+export const getTitleState = createSelector(getHomeState, fromHome.getTitleState);

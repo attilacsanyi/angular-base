@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent } from '../dashboard/components';
-import { DashboardResolver } from '../dashboard/services';
+import { DashboardGuard } from './guards';
+import { DashboardComponent } from './views';
 
 export const routingComponents = [DashboardComponent];
 
@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
-    resolve: { population: DashboardResolver },
+    canActivate: [DashboardGuard],
     data: { state: 'dashboard' }
   }
 ];

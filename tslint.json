@@ -43,6 +43,13 @@
     "no-unused-expression": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
+    "no-unused-variable": [
+      true,
+      "check-parameters",
+      {
+        "ignore-pattern": "^_"
+      }
+    ],
     "object-literal-sort-keys": false,
     "one-line": [true, "check-open-brace", "check-catch", "check-else", "check-whitespace"],
     "prefer-const": true,
@@ -60,7 +67,6 @@
         "variable-declaration": "nospace"
       }
     ],
-    "typeof-compare": true,
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"],
@@ -125,7 +131,7 @@
       // By convention T, U and V are used for generics. You could enforce that with "regex": "^[TUV]$" and if you are care that much for performance, you could disable every other check by setting a falsy value
       {
         "type": "genericTypeParameter",
-        "regex": "^[TUV]$"
+        "regex": "^[A-Z]$"
       },
       // enum members must be in PascalCase. Without this config, enumMember would inherit UPPER_CASE from public static const property
       {
@@ -172,6 +178,10 @@
     },
     "rxjs-no-wholesale": {
       "severity": "error"
-    }
+    },
+    "rxjs-no-subject-unsubscribe": {
+      "severity": "error"
+    },
+    "rxjs-no-unsafe-switchmap": true
   }
 }

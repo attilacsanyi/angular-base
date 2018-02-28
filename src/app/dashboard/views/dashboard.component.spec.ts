@@ -1,8 +1,13 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard.component';
+import { combineReducers, StoreModule } from '@ngrx/store';
 
-import { TestModule } from '../../../test.module';
+import { reducers as coreReducers } from '@core/store';
+
+import { reducers } from '@dashboard/store';
+
+import { DashboardComponent } from './dashboard.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -11,7 +16,9 @@ describe('DashboardComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [TestModule]
+        imports: [StoreModule.forRoot({ core: combineReducers(coreReducers), dashboard: combineReducers(reducers) } as any)],
+        declarations: [DashboardComponent],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA]
       }).compileComponents();
     })
   );

@@ -7,4 +7,4 @@ export class LoadTitleAction implements Action {
   constructor(public title: string) {}
 }
 
-export type Actions = LoadTitleAction;
+export type DashboardActions = LoadTitleAction;

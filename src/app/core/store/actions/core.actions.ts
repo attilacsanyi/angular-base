@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { User } from '../../../core/models';
+import { User } from '@core/models';
 
 const modulePrefix = '[Core]';
 
@@ -11,7 +11,7 @@ export class LoginAction implements Action {
 
 export class LoginSuccessAction implements Action {
   readonly type = `${modulePrefix} Login Success`;
-  constructor(public payload: User) {}
+  constructor(public user: User) {}
 }
 
 export class LoginFailedAction implements Action {

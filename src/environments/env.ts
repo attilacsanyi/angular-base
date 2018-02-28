@@ -1,5 +1,5 @@
 export interface Env {
+  env: string;
   production: boolean;
-  rxJsDebugger: boolean;
   routeTracing: boolean;
 }

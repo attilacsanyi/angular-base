@@ -1,14 +1,16 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit, VERSION } from '@angular/core';
 
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs/Observable';
 
-import * as models from '../../../core/models';
-import * as actions from '../../../core/store/actions';
-import * as selectors from '../../../core/store/selectors';
+import { AppState } from 'app/app.state';
 
-import { AppState } from '../../../app.state';
+import { environment } from '@env';
+
+import * as models from '@core/models';
+import * as actions from '@core/store/actions';
+import * as selectors from '@core/store/selectors';
 
 @Component({
   selector: 'ac-title',
@@ -19,13 +21,14 @@ import { AppState } from '../../../app.state';
 export class TitleComponent implements OnInit {
   @Input() title: string;
 
-  user$: Observable<models.User>;
+  user$: Observable<models.User | undefined>;
   ngVersion = VERSION.full;
+  env = environment.env;
 
   constructor(private store$: Store<AppState>) {}
 
   ngOnInit() {
-    this.user$ = this.store$.select(selectors.getUserState);
+    this.user$ = this.store$.pipe(select(selectors.getUserState));
   }
 
   logout = () => this.store$.dispatch(new actions.LogoutAction());

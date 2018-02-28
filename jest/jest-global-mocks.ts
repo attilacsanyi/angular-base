@@ -1,9 +1,9 @@
 const mock = () => {
-  let storage = {};
+  let storage: { [key: string]: any } = {};
   return {
-    getItem: key => (key in storage ? storage[key] : null),
-    setItem: (key, value) => (storage[key] = value || ''),
-    removeItem: key => delete storage[key],
+    getItem: (key: string) => (key in storage ? storage[key] : null),
+    setItem: (key: string, value: any) => (storage[key] = value || ''),
+    removeItem: (key: string) => delete storage[key],
     clear: () => (storage = {})
   };
 };
@@ -19,9 +19,8 @@ Object.defineProperty(window, 'matchMedia', { value: () => ({ matches: true }) }
 Object.defineProperty(window, 'CSS', { value: '' });
 
 /**
- * ISSUE: The animation trigger "transitionMessages" has failed to build due to the following errors:
- *         - The provided animation property "transform" is not a supported CSS property for animations
- * https://github.com/angular/material2/issues/7101
+ * JSDOM missing transform property when using Angular Material, there is a workaround for it
+ * https://github.com/thymikee/jest-preset-angular#the-animation-trigger-transformmenu-has-failed
  */
 Object.defineProperty(document.body.style, 'transform', {
   value: () => {
