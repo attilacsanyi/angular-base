@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+
+import { NotificationService } from '@core/services';
 
 import { routerSlideToLeftAnimation } from './shared/animations';
 
@@ -9,8 +11,16 @@ import { routerSlideToLeftAnimation } from './shared/animations';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'Angular Base';
 
-  ngOnInit() {}
+  constructor(private notifications: NotificationService) {}
+
+  ngOnInit() {
+    this.notifications.subscribeForNewUpdates();
+  }
+
+  ngOnDestroy() {
+    this.notifications.unsubscribeNotifications();
+  }
 }

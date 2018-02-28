@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { components, dialogs } from '@shared/components';
+import { services } from '@shared/services';
 
 import { MaterialModule } from './material.module';
 
@@ -47,7 +48,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: []
+      providers: [...services]
     };
   }
 }
