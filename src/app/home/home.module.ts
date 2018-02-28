@@ -3,23 +3,25 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 
-import * as effects from '../home/store/effects';
-import * as reducers from '../home/store/reducers';
-import * as states from '../home/store/states';
+import { components, pipes } from './components';
+import { guards } from './guards';
 import { HomeRoutingModule, routingComponents } from './home-routing.module';
+import { services } from './services';
+import { effects, reducers } from './store';
 
 @NgModule({
   imports: [
     SharedModule,
 
     // ngrx
-    StoreModule.forFeature('home', reducers.reducer, { initialState: states.initialState }),
-    EffectsModule.forFeature([effects.HomeEffectsService]),
+    StoreModule.forFeature('home', reducers),
+    EffectsModule.forFeature(effects),
 
     HomeRoutingModule
   ],
-  declarations: [...routingComponents]
+  declarations: [...routingComponents, ...components, ...pipes],
+  providers: [...pipes, ...services, ...guards]
 })
 export class HomeModule {}

@@ -1,7 +1,7 @@
 import { Env } from './env';
 
 export const environment: Env = {
+  env: 'prod',
   production: true,
-  rxJsDebugger: false,
   routeTracing: false
 };

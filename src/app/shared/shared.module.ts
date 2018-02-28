@@ -1,16 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+import { components, dialogs } from '@shared/components';
+
 import { MaterialModule } from './material.module';
-
-// Components
-const sharedComponents = [];
-
-const dialogComponents = [];
 
 @NgModule({
   imports: [
@@ -26,12 +22,11 @@ const dialogComponents = [];
     // Flex Layout
     FlexLayoutModule
   ],
-  declarations: [...sharedComponents, ...dialogComponents],
+  declarations: [...components, ...dialogs],
   exports: [
     // Angular
     CommonModule,
     RouterModule,
-    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
 
@@ -42,10 +37,10 @@ const dialogComponents = [];
     FlexLayoutModule,
 
     // Shared
-    ...sharedComponents
+    ...components
   ],
   // Dialogs
-  entryComponents: [...dialogComponents],
+  entryComponents: [...components],
   providers: []
 })
 export class SharedModule {

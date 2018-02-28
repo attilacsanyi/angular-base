@@ -12,6 +12,10 @@ module.exports = function(config) {
       require('karma-coverage-istanbul-reporter'),
       require('@angular/cli/plugins/karma')
     ],
+    files: [
+      // Prevent 'Could not find Angular Material core theme.' warning message
+      { pattern: './node_modules/@angular/material/prebuilt-themes/indigo-pink.css', watched: false }
+    ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },

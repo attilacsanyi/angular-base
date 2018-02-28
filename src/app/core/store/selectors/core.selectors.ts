@@ -1,9 +1,8 @@
 import { createSelector } from '@ngrx/store';
 
-import * as states from '../../../core/store/states';
+import * as fromFeature from '../reducers';
+import * as fromCore from '../reducers/core.reducer';
 
-import { AppState } from '../../../../app/app.state';
+const getCoreState = fromFeature.getCoreState;
 
-const getCoreState = (state: AppState) => state.core;
-
-export const getUserState = createSelector(getCoreState, (state: states.State) => state.user);
+export const getUserState = createSelector(getCoreState, fromCore.getUserState);

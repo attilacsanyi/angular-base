@@ -4,34 +4,33 @@ import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 import { Actions, Effect } from '@ngrx/effects';
 import {
-    ROUTER_CANCEL,
-    ROUTER_ERROR,
-    ROUTER_NAVIGATION,
-    RouterCancelAction,
-    RouterErrorAction,
-    RouterNavigationAction,
+  ROUTER_CANCEL,
+  ROUTER_ERROR,
+  ROUTER_NAVIGATION,
+  RouterCancelAction,
+  RouterErrorAction,
+  RouterNavigationAction,
 } from '@ngrx/router-store';
 
+import { Observable } from 'rxjs/Observable';
 import { filter, map, share, tap } from 'rxjs/operators';
 
-import * as actions from '../../../core/store/actions';
+import { AppState } from 'app/app.state';
 
-import { AppState } from '../../../app.state';
+import * as actions from '@core/store/actions';
 
 @Injectable()
 export class RouterEffectsService {
   @Effect({ dispatch: false })
   navigate$ = this.actions$.pipe(
-    filter(action => action instanceof actions.RouterGoAction),
-    map((action: actions.RouterGoAction) => action),
+    filter((action: any): action is actions.RouterGoAction => action instanceof actions.RouterGoAction),
     tap(({ path, queryParams, extras }) => this.router.navigate(path, { queryParams, ...extras }))
   );
 
   @Effect({ dispatch: false })
   navigateByUrl$ = this.actions$.pipe(
-    filter(action => action instanceof actions.RouterGoByUrlAction),
-    map((action: actions.RouterGoByUrlAction) => action.url),
-    tap(url => (url ? this.router.navigateByUrl(url) : undefined))
+    filter((action: any): action is actions.RouterGoByUrlAction => action instanceof actions.RouterGoByUrlAction),
+    tap(({ url }) => (url ? this.router.navigateByUrl(url) : undefined))
   );
 
   @Effect({ dispatch: false })
@@ -49,24 +48,21 @@ export class RouterEffectsService {
    */
 
   @Effect({ dispatch: false })
-  routerNavigation$ = this.actions$.ofType(ROUTER_NAVIGATION).pipe(
-    map((action: RouterNavigationAction) => action.payload),
-    // tap(payload => console.log(payload)),
+  routerNavigation$ = this.actions$.ofType<RouterNavigationAction>(ROUTER_NAVIGATION).pipe(
+    // tap(({ payload }) => console.log(payload)),
     share()
   );
 
   /** The ROUTER_CANCEL action represents a guard canceling navigation */
   @Effect({ dispatch: false })
-  routerCancel$ = this.actions$.ofType(ROUTER_CANCEL).pipe(
-    map((action: RouterCancelAction<AppState>) => action.payload),
-    // tap(payload => console.log(payload)),
+  routerCancel$ = this.actions$.ofType<RouterCancelAction<AppState>>(ROUTER_CANCEL).pipe(
+    // tap(({payload}) => console.log(payload)),
     share()
   );
 
   @Effect({ dispatch: false })
-  routerError$ = this.actions$.ofType(ROUTER_ERROR).pipe(
-    map((action: RouterErrorAction<AppState>) => action.payload),
-    // tap(payload => console.log(payload)),
+  routerError$ = this.actions$.ofType<RouterErrorAction<AppState>>(ROUTER_ERROR).pipe(
+    // tap(({payload}) => console.log(payload)),
     share()
   );
 
@@ -76,14 +72,18 @@ export class RouterEffectsService {
 
   @Effect({ dispatch: false })
   navigationStart$ = this.router.events.pipe(
-    filter(event => event instanceof NavigationStart)
-    // tap(event => console.log(`nav start: ${event}`))
+    filter(event => event instanceof NavigationStart),
+    map(event => event as NavigationStart),
+    // tap(event => console.log(`nav start: ${event}`)),
+    share()
   );
 
   @Effect({ dispatch: false })
-  navigationEnd$ = this.router.events.pipe(
-    filter(event => event instanceof NavigationEnd)
-    // tap(event => console.log(`nav end: ${event}`))
+  navigationEnd$: Observable<NavigationEnd> = this.router.events.pipe(
+    filter(event => event instanceof NavigationEnd),
+    map(event => event as NavigationEnd),
+    // tap(event => console.log(`nav end: ${event}`)),
+    share()
   );
 
   constructor(private location: Location, private actions$: Actions, private router: Router) {}

@@ -14,15 +14,25 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "resources": {
-        "files": ["/assets/**"],
-        "urls": ["https://fonts.googleapis.com/**"]
+        "files": ["/assets/**/*"],
+        "urls": ["https://fonts.googleapis.com/**", "https://fonts.gstatic.com/**"]
       }
     }
   ],
   "dataGroups": [
     {
-      "name": "custom-api",
-      "urls": ["/api1", "/api2"],
+      "name": "api-performance",
+      "urls": ["/api1"],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 100,
+        "maxAge": "3d",
+        "timeout": "1m"
+      }
+    },
+    {
+      "name": "api-freshness",
+      "urls": ["/api2"],
       "cacheConfig": {
         "strategy": "freshness",
         "maxSize": 20,

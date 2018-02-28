@@ -1,8 +1,13 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { combineReducers, StoreModule } from '@ngrx/store';
 
-import { TestModule } from '../../../test.module';
+import { reducers as coreReducers } from '@core/store';
+
+import { reducers } from '@home/store';
+
+import { HomeComponent } from './home.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -11,7 +16,9 @@ describe('HomeComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [TestModule]
+        imports: [StoreModule.forRoot({ core: combineReducers(coreReducers), home: combineReducers(reducers) } as any)],
+        declarations: [HomeComponent],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA]
       }).compileComponents();
     })
   );

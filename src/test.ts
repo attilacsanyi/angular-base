@@ -9,7 +9,6 @@ import 'zone.js/dist/long-stack-trace-zone';
 import 'zone.js/dist/proxy.js';
 import 'zone.js/dist/sync-test';
 
-
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare const __karma__: any;
 declare const require: any;

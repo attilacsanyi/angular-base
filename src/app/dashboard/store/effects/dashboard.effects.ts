@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { defer } from 'rxjs/observable/defer';
 import { of } from 'rxjs/observable/of';
 
-import * as actions from '../../../dashboard/store/actions';
+import * as actions from '@dashboard/store/actions';
 
 @Injectable()
 export class DashboardEffectsService {

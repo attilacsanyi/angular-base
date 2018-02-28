@@ -1,1 +1,2 @@
-export * from './home.component';
+export const components = [];
+export const pipes = [];

@@ -1,6 +1,13 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { TestModule } from '../../../../test.module';
+import { combineReducers, StoreModule } from '@ngrx/store';
+
+import { SharedModule } from '@shared/shared.module';
+
+import { reducers } from '@core/store';
+
 import { TitleComponent } from './title.component';
 
 describe('TitleComponent', () => {
@@ -10,7 +17,9 @@ describe('TitleComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [TestModule]
+        imports: [RouterTestingModule, SharedModule, StoreModule.forRoot({ core: combineReducers(reducers) })],
+        declarations: [TitleComponent],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA]
       }).compileComponents();
     })
   );

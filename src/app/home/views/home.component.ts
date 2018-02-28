@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs/Observable';
 
-import * as selectors from '../../home/store/selectors';
-
-import { AppState } from '../../app.state';
+import * as fromStore from '../store';
 
 @Component({
   selector: 'ac-home',
@@ -17,9 +15,9 @@ import { AppState } from '../../app.state';
 export class HomeComponent implements OnInit {
   title$: Observable<string>;
 
-  constructor(private store$: Store<AppState>) {}
+  constructor(private store$: Store<fromStore.HomeState>) {}
 
   ngOnInit() {
-    this.title$ = this.store$.select(selectors.getTitleState);
+    this.title$ = this.store$.pipe(select(fromStore.getTitleState));
   }
 }
