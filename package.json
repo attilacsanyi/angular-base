@@ -54,7 +54,7 @@
     "@angular/compiler-cli": "5.2.6",
     "@angular/language-service": "5.2.6",
     "@angular/platform-server": "5.2.6",
-    "@compodoc/compodoc": "1.0.7",
+    "@compodoc/compodoc": "1.0.8",
     "@types/jasmine": "2.8.6",
     "@types/jasminewd2": "2.0.3",
     "@types/jest": "22.1.3",
