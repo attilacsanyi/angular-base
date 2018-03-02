@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "precommit": "pretty-quick --staged",
     "lite-server": "lite-server",
     "build": "ng build",
     "build-prod": "ng build --prod -e prod --named-chunks --sourcemaps --stats-json",
@@ -59,6 +60,7 @@
     "@types/jest": "22.1.3",
     "@types/node": "9.4.6",
     "codelyzer": "4.1.0",
+    "husky": "0.14.3",
     "firebase-tools": "3.17.4",
     "jasmine-core": "3.1.0",
     "jasmine-spec-reporter": "4.2.1",
@@ -72,6 +74,8 @@
     "karma-jasmine-html-reporter": "0.2.2",
     "lite-server": "2.3.0",
     "ngrx-store-freeze": "0.2.1",
+    "prettier": "1.11.1",
+    "pretty-quick": "1.4.1",
     "protractor": "5.3.0",
     "rxjs-tslint-rules": "3.14.0",
     "ts-node": "5.0.0",
@@ -91,5 +95,9 @@
       "^@home/(.*)": "<rootDir>/src/app/home/$1",
       "^@dashboard/(.*)": "<rootDir>/src/app/dashboard/$1"
     }
+  },
+  "prettier": {
+    "printWidth": 140,
+    "singleQuote": true
   }
 }
