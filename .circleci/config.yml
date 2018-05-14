@@ -134,11 +134,8 @@ workflows:
   version: 2
   angular-base:
     jobs:
-      - install:
-          filters:
-            branches:
-              only:
-                - master
+      - install
+
       # lint & test running in parallel
       - lint:
           requires:
