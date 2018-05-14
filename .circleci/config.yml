@@ -110,6 +110,7 @@ jobs:
         <<: *job_defaults
         steps:
             - *log_branch_name
+            - *restore_dependencies
 
             # Restoring dist
             - run:
