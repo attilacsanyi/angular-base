@@ -9,10 +9,10 @@ import {
   ROUTER_NAVIGATION,
   RouterCancelAction,
   RouterErrorAction,
-  RouterNavigationAction,
+  RouterNavigationAction
 } from '@ngrx/router-store';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { filter, map, share, tap } from 'rxjs/operators';
 
 import { AppState } from 'app/app.state';

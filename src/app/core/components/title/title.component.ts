@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit, VERSION } from '@ang
 
 import { select, Store } from '@ngrx/store';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { AppState } from 'app/app.state';
 

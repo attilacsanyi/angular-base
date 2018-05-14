@@ -3,9 +3,8 @@ import { CanActivate } from '@angular/router';
 
 import { select, Store } from '@ngrx/store';
 
-import { Observable } from 'rxjs/Observable';
-import { take } from 'rxjs/operators';
-import { mapTo } from 'rxjs/operators/mapTo';
+import { Observable } from 'rxjs';
+import { mapTo, take } from 'rxjs/operators';
 
 import * as fromStore from '../store';
 
