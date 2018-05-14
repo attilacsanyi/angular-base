@@ -1,52 +1,159 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
+###############################################
+# RESOURCES
+###############################################
+
+# Angular.io
+# https://github.com/angular/angular/blob/master/.circleci/config.yml
+
+# Medium: How we used CircleCI 2.0 to build and deploy an Angular app to AWS S3
+# https://medium.freecodecamp.org/our-journey-for-using-circleci-2-0-to-build-and-deploy-an-angular-app-to-aws-s3-8e7ea3f51503
+
 version: 2
+
+###############################################
+# VARIABLES
+###############################################
+
+# Image
+var_00: &docker_image circleci/node:9.11.1
+# Directories
+var_01: &dist dist
+
+# Cache variables
+var_10: &cache_deps v1-pcg-{{ .Branch }}-{{ checksum "yarn.lock" }}
+var_11: &restore_dependencies
+  restore_cache:
+    keys:
+      - *cache_deps
+      - v1-pcg-
+var_12: &cache_dist v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+
+# Desired Docker image and working directory to each job
+var_20: &job_defaults
+  working_directory: ~/angular-base
+  docker:
+    - image: *docker_image
+
+# Current branch name logger
+var_30: &log_branch_name
+  run:
+    name: CURRENT BRANCH
+    command: echo ${CIRCLE_BRANCH}
+
+###############################################
+# JOBS
+###############################################
+
 jobs:
-  build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/node:latest-browsers
+    # The installing job
+    install:
+        <<: *job_defaults
+        steps:
+            - checkout
+            - *log_branch_name
+            - *restore_dependencies
 
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
+            # Installing
+            - run:
+                name: INSTALLING
+                command: yarn
+            - save_cache:
+                key: *cache_deps
+                paths:
+                  - node_modules
 
-    working_directory: ~/repo
+    # The linting job
+    lint:
+        <<: *job_defaults
+        steps:
+            - checkout
+            - *log_branch_name
+            - *restore_dependencies
 
-    steps:
-      - checkout
+            # Linting
+            - run:
+                name: LINTING
+                command: yarn lint
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+    # The testing job
+    test:
+        <<: *job_defaults
+        steps:
+            - checkout
+            - *log_branch_name
+            - *restore_dependencies
 
-      # Install yarn
-      - run: yarn install
+            # Testing
+            - run:
+                name: TESTING
+                command: yarn ci-test
 
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+    # The building job
+    build:
+        <<: *job_defaults
+        steps:
+            - checkout
+            - *log_branch_name
+            - *restore_dependencies
 
-      # Linting
-      - run: yarn lint
+            # Building
+            - run:
+                name: BUILDING (-> dist)
+                command: yarn build-prod
+            - save_cache:
+                key: *cache_dist
+                paths:
+                  - *dist
 
-      # Testing
-      - run: yarn ci-test
+    # The deploy job
+    deploy:
+        <<: *job_defaults
+        steps:
+            - *log_branch_name
 
-      # Building
-      - run: yarn build-prod
+            # Restoring dist
+            - run:
+                name: CACHE (<- dist)
+                command: echo "Restoring dist..."
+            - restore_cache:
+                key: *cache_dist
 
-      # Deploying
+            # Deploying
+            - run:
+                name: DEPLOYING
+                command: |
+                  if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                    ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+                  fi
+
+###############################################
+# WORKFLOWS
+###############################################
+
+workflows:
+  version: 2
+  angular-base:
+    jobs:
+      - install:
+          filters:
+            branches:
+              only:
+                - master
+      # lint & test running in parallel
+      - lint:
+          requires:
+            - install
+      - test:
+          requires:
+            - install
+      # build only if lint & test were succesfull
+      - build:
+          requires:
+            - lint
+            - test
+
+      # The deploy job will only run on the filtered branches and
+      # require the build job to be successful before it starts
       - deploy:
-         name: Deploy Master to Firebase
-         command: |
-          if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
-          fi
+          requires:
+            - build
