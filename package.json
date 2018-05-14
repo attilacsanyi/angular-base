@@ -3,21 +3,26 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "prettier": "pretty-quick",
     "precommit": "pretty-quick --staged",
     "lite-server": "lite-server",
-    "build": "ng build",
-    "build-prod": "ng build --prod -e prod --named-chunks --sourcemaps --stats-json",
-    "ci": "npm run lint && npm run ci-test",
-    "ci-prod": "npm run ci && npm run build-prod",
-    "ci-test": "jest --coverage",
-    "prod": "npm run ci-prod && npm run lite-server",
+    "build": "ng build --prod --stats-json --named-chunks --progress=false",
+    "build-uat": "ng build --prod --e uat --named-chunks --progress=false",
+    "build-prod": "ng build --prod --e prod --named-chunks --progress=false",
+    "ci": "yarn lint && yarn test",
+    "ci-prod": "yarn ci && yarn build-prod",
+    "ci-test": "jest --maxWorkers=2 --ci --coverage --coverageReporters=\"text\" --config jest.json",
+    "prod": "yarn ci-prod && yarn lite-server",
     "ng": "ng",
     "start": "ng serve --aot --host localhost --port 5201",
-    "start-prod": "ng serve --aot -e prod --host localhost --port 6201",
-    "lint": "ng lint --type-check",
-    "lint-fix": "ng lint --fix --type-check",
-    "test": "jest",
-    "tdd": "jest --watch",
+    "start-no-aot": "ng serve --host localhost --port 5201",
+    "start-prod": "ng serve --aot ---e prod --host localhost --port 6201",
+    "lint": "yarn lint-ts && yarn lint-styles",
+    "lint-ts": "ng lint --fix --type-check",
+    "lint-styles": "stylelint \"**/*.scss\" --fix",
+    "test": "jest --config jest.json",
+    "test-report": "jest --coverage --coverageReporters=\"html\" --config jest.json",
+    "tdd": "jest --watch --config jest.json",
     "e2e": "ng e2e",
     "docs":
       "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d ./docs -t --theme stripe --disableCoverage --hideGenerator -n \"Angular Base Documentation\"",
@@ -78,26 +83,11 @@
     "pretty-quick": "1.4.1",
     "protractor": "5.3.2",
     "rxjs-tslint-rules": "4.1.1",
+    "stylelint": "9.2.0",
+    "stylelint-config-standard": "18.2.0",
     "ts-node": "6.0.3",
     "tslint": "5.10.0",
     "tslint-consistent-codestyle": "1.13.0",
     "typescript": "2.7.2"
-  },
-  "jest": {
-    "preset": "jest-preset-angular",
-    "setupTestFrameworkScriptFile": "<rootDir>/jest/jest-setup.ts",
-    "collectCoverageFrom": ["src/**/*.ts", "!jest", "!src/*.ts", "!src/**/*.d.ts", "!src/**/index.ts"],
-    "coverageReporters": ["html"],
-    "moduleNameMapper": {
-      "^@env": "<rootDir>/src/environments/environment",
-      "^@core/(.*)": "<rootDir>/src/app/core/$1",
-      "^@shared/(.*)": "<rootDir>/src/app/shared/$1",
-      "^@home/(.*)": "<rootDir>/src/app/home/$1",
-      "^@dashboard/(.*)": "<rootDir>/src/app/dashboard/$1"
-    }
-  },
-  "prettier": {
-    "printWidth": 140,
-    "singleQuote": true
   }
 }
