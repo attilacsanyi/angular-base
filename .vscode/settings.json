@@ -3,12 +3,14 @@
   // Files
   "files.exclude": {
     "**/.git": true,
-    "**/.DS_Store": true
+    "**/.DS_Store": true,
+    "**/.history": true
   },
   "files.autoSave": "off",
   // Search
   "search.exclude": {
     ".vscode": true,
+    ".history": true,
     "coverage": true,
     "dist": true,
     "docs": true,
