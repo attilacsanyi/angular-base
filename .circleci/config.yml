@@ -20,12 +20,12 @@ var_00: &docker_image circleci/node:9.11.1
 var_01: &dist dist
 
 # Cache variables
-var_10: &cache_deps v1-pcg-{{ .Branch }}-{{ checksum "yarn.lock" }}
+var_10: &cache_deps v1-angular-base-{{ .Branch }}-{{ checksum "yarn.lock" }}
 var_11: &restore_dependencies
   restore_cache:
     keys:
       - *cache_deps
-      - v1-pcg-
+      - v1-angular-base-
 var_12: &cache_dist v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
 
 # Desired Docker image and working directory to each job
@@ -109,6 +109,7 @@ jobs:
     deploy:
         <<: *job_defaults
         steps:
+            - checkout
             - *log_branch_name
             - *restore_dependencies
 
