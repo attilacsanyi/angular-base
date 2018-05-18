@@ -15,7 +15,7 @@
 
     <!-- Title -->
     <span fxFlex></span>
-    <span class="title" fxHide.xs> {{title | uppercase}} (ng v{{ ngVersion }}) - {{ env | uppercase}}</span>
+    <span class="title" fxHide.xs> {{ title | uppercase }} (ng v{{ ngVersion }}) - {{ env | uppercase }}</span>
     <span fxFlex></span>
 
     <div fxLayoutGap="15px">
@@ -25,7 +25,7 @@
           <mat-icon>account_circle</mat-icon>
         </a>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item> {{ user.name }} ({{user.age}})</button>
+          <button mat-menu-item> {{ user.name }} ({{ user.age }})</button>
         </mat-menu>
         <!-- Logout -->
         <a mat-mini-fab (click)="logout()" color="primary">
