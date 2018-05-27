@@ -111,16 +111,31 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/angular-base-server",
+            "outputPath": "dist-server",
             "main": "src/main.server.ts",
-            "tsConfig": "src/tsconfig.server.json"
+            "tsConfig": "src/tsconfig.server.json",
+            "stylePreprocessorOptions": {
+              "includePaths": ["src"]
+            }
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "progress": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
           }
         },
         "app-shell": {
           "builder": "@angular-devkit/build-angular:app-shell",
           "options": {
-            "browserTarget": "angular-base:build",
-            "serverTarget": "angular-base:server",
+            "browserTarget": "angular-base:build:production",
+            "serverTarget": "angular-base:server:production",
             "route": "shell"
           }
         }
