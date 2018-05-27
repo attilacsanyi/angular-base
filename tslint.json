@@ -175,6 +175,7 @@
       "severity": "error"
     },
     "rxjs-no-unsafe-switchmap": true,
+    "rxjs-no-unsafe-takeuntil": true,
     "rxjs-ban-observables": {
       "options": [
         {
