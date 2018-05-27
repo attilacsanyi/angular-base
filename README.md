@@ -2,6 +2,6 @@
 
 # AngularBase
 
-Latest Angular CLI, Angular, TypeScript, Material, Flex Layout, @ngrx example PWA app.
+Latest Angular CLI, Angular, TypeScript, Material, Flex Layout, @ngrx example PWA & App Shell (SSR) app.
 
 Deployed on [Firebase](https://ac-angular-base.firebaseapp.com)

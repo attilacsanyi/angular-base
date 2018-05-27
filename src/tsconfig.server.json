@@ -1,8 +1,8 @@
 {
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
-    "outDir": "../out-tsc/app-server",
-    "baseUrl": ".",
+    "outDir": "../dist-server",
+    "baseUrl": "./",
     "module": "commonjs"
   },
   "angularCompilerOptions": {
