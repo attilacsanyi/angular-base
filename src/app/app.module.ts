@@ -20,7 +20,7 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? [] : [s
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({ appId: 'angular-base' }),
+    BrowserModule.withServerTransition({ appId: 'angular-base-server' }),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
 
     CoreModule.forRoot(),
