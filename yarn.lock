@@ -391,6 +391,10 @@
     tree-kill "^1.0.0"
     webpack-sources "^1.1.0"
 
+"@nguniversal/module-map-ngfactory-loader@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@nguniversal/module-map-ngfactory-loader/-/module-map-ngfactory-loader-6.0.0.tgz#0dd26c3f1c26d17bb21b8dfc0da53d82b7f11028"
+
 "@nodelib/fs.stat@^1.0.1":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.0.2.tgz#d056b68999769728a1cff8d643bc59eb6f0be436"
@@ -10133,6 +10137,16 @@ ts-jest@^22.4.1:
     pkg-dir "^2.0.0"
     source-map-support "^0.5.5"
     yargs "^11.0.0"
+
+ts-loader@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-4.3.0.tgz#4e3ba172783d1256d3a23bdfadde011a795fae9e"
+  dependencies:
+    chalk "^2.3.0"
+    enhanced-resolve "^4.0.0"
+    loader-utils "^1.0.2"
+    micromatch "^3.1.4"
+    semver "^5.0.1"
 
 ts-node@6.0.5:
   version "6.0.5"

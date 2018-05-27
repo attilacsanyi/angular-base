@@ -115,6 +115,14 @@
             "main": "src/main.server.ts",
             "tsConfig": "src/tsconfig.server.json"
           }
+        },
+        "app-shell": {
+          "builder": "@angular-devkit/build-angular:app-shell",
+          "options": {
+            "browserTarget": "angular-base:build",
+            "serverTarget": "angular-base:server",
+            "route": "shell"
+          }
         }
       }
     },

@@ -59,6 +59,7 @@
     "@angular/language-service": "6.0.3",
     "@angular/platform-server": "6.0.3",
     "@compodoc/compodoc": "1.0.9",
+    "@nguniversal/module-map-ngfactory-loader": "6.0.0",
     "@types/jasmine": "2.8.7",
     "@types/jasminewd2": "2.0.3",
     "@types/jest": "22.2.3",
@@ -85,6 +86,7 @@
     "stylelint": "9.2.1",
     "stylelint-config-standard": "18.2.0",
     "ts-node": "6.0.5",
+    "ts-loader": "4.3.0",
     "tslint": "5.10.0",
     "tslint-consistent-codestyle": "1.13.0",
     "typescript": "2.7.2"
