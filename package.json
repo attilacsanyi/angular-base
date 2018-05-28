@@ -8,7 +8,7 @@
     "lite-server": "lite-server",
     "build": "ng build --configuration local",
     "build-prod": "ng run angular-base:app-shell",
-    "build-no-ssr": "ng build --configuration production",
+    "build-prod-no-ssr": "ng build --configuration production",
     "ci": "yarn lint && yarn test",
     "ci-prod": "yarn ci && yarn build-prod",
     "ci-test": "jest --maxWorkers=2 --ci --coverage --coverageReporters=\"text\" --config jest.json",

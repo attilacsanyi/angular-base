@@ -120,7 +120,6 @@
           },
           "configurations": {
             "production": {
-              "optimization": true,
               "progress": false,
               "fileReplacements": [
                 {
