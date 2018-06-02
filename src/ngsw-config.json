@@ -5,7 +5,7 @@
       "name": "app",
       "installMode": "prefetch",
       "resources": {
-        "files": ["/favicon.ico", "/index.html", "/*.bundle.css", "/*.bundle.js", "/*.chunk.js"]
+        "files": ["/favicon.ico", "/index.html", "/*.css", "/*.js"]
       }
     },
     {
@@ -13,7 +13,7 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "resources": {
-        "files": ["/assets/**/*"],
+        "files": ["/assets/**"],
         "urls": ["https://fonts.googleapis.com/**", "https://fonts.gstatic.com/**"]
       }
     }
