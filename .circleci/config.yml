@@ -15,7 +15,7 @@ version: 2
 ###############################################
 
 # Image
-var_00: &docker_image circleci/node:10.1.0
+var_00: &docker_image circleci/node:10.5.0
 # Directories
 var_01: &dist dist
 
