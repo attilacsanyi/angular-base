@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow:
+Allow: /index.html
+
+Sitemap: https://ac-angular-base.firebaseapp.com/sitemap.xml
