@@ -2,12 +2,12 @@
   <mat-toolbar-row>
     <div fxLayoutGap="15px">
       <!-- Home -->
-      <a mat-mini-fab routerLink="home" routerLinkActive #rlaHome="routerLinkActive" [color]="rlaHome.isActive ? 'accent' : 'default'">
+      <a mat-mini-fab routerLink="home" routerLinkActive #rlaHome="routerLinkActive" [color]="rlaHome.isActive ? 'accent' : 'default'" aria-label="Home">
         <mat-icon>home</mat-icon>
       </a>
 
       <!-- Dashboard -->
-      <a mat-mini-fab routerLink="dashboard" routerLinkActive #rlaDashboard="routerLinkActive" [color]="rlaDashboard.isActive ? 'accent' : 'default'">
+      <a mat-mini-fab routerLink="dashboard" routerLinkActive #rlaDashboard="routerLinkActive" [color]="rlaDashboard.isActive ? 'accent' : 'default'" aria-label="Dashboard">
         <mat-icon>dashboard</mat-icon>
       </a>
 
