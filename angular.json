@@ -133,9 +133,15 @@
         "app-shell": {
           "builder": "@angular-devkit/build-angular:app-shell",
           "options": {
-            "browserTarget": "angular-base:build:production",
-            "serverTarget": "angular-base:server:production",
+            "browserTarget": "angular-base:build",
+            "serverTarget": "angular-base:server",
             "route": "shell"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-base:build:production",
+              "serverTarget": "angular-base:server:production"
+            }
           }
         }
       }
