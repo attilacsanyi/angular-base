@@ -1,5 +1,5 @@
 <ac-title [title]="title"></ac-title>
 
-<div [@routerTransition]="outlet.activatedRouteData.state">
+<div [@routerTransition]="outlet.activatedRouteData.state" role="main">
   <router-outlet #outlet="outlet"></router-outlet>
 </div>
