@@ -84,6 +84,7 @@
     "template-cyclomatic-complexity": [true, 5],
     "template-conditional-complexity": [true, 4],
     "use-pipe-decorator": true,
+    "import-destructuring-spacing": true,
     //-----------------------
     // Consistent Codestyle
     //-----------------------
