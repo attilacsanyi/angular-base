@@ -8,5 +8,6 @@
     "^@shared/(.*)": "<rootDir>/src/app/shared/$1",
     "^@home/(.*)": "<rootDir>/src/app/home/$1",
     "^@dashboard/(.*)": "<rootDir>/src/app/dashboard/$1"
-  }
+  },
+  "bail": true
 }
