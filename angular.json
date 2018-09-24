@@ -54,6 +54,13 @@
               "serviceWorker": true,
               "ngswConfigPath": "src/ngsw-config.json",
               "statsJson": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "7mb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
