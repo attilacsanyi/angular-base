@@ -20,7 +20,10 @@ export const routes: Routes = [
       enableTracing: environment.routeTracing,
 
       // Preload all Lazy modules while the user start navigating the app
-      preloadingStrategy: PreloadAllModules
+      preloadingStrategy: PreloadAllModules,
+
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled'
     })
   ],
   exports: [RouterModule]
