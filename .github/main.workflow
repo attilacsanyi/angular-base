@@ -1,6 +1,6 @@
-workflow "New workflow" {
+workflow "Angular Base" {
   on = "push"
-  resolves = ["docker://circleci/node:11.4.0"]
+  resolves = ["yarn install", "Linting"]
 }
 
 action "Installing dependencies" {
@@ -8,8 +8,15 @@ action "Installing dependencies" {
   args = "install"
 }
 
-action "docker://circleci/node:11.4.0" {
-  uses = "docker://circleci/node:11.4.0"
+action "yarn install" {
+  uses = "actions/docker/cli@76ff57a"
   needs = ["Installing dependencies"]
   args = "yarn"
+  runs = "docker pull circleci/node:11.4.0"
+}
+
+action "Linting" {
+  uses = "actions/npm@e7aaefe"
+  needs = ["Installing dependencies"]
+  args = "lint"
 }
