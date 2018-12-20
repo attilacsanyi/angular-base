@@ -13,18 +13,18 @@ action "Installing" {
 
 action "Linting" {
   uses = "actions/npm@e7aaefe"
-  args = "lint"
+  args = "run lint"
   needs = ["Installing"]
 }
 
 action "Testing" {
   uses = "actions/npm@e7aaefe"
   needs = ["Installing"]
-  args = "test"
+  args = "run test"
 }
 
 action "Building" {
   uses = "actions/npm@e7aaefe"
   needs = ["Linting", "Testing"]
-  args = "build-prod"
+  args = "run build-prod"
 }
