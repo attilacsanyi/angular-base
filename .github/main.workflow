@@ -1,22 +1,30 @@
 workflow "Angular Base" {
   on = "push"
-  resolves = ["yarn install", "Linting"]
+  resolves = [
+    "Testing",
+    "Building",
+  ]
 }
 
-action "Installing dependencies" {
+action "Installing" {
   uses = "actions/npm@e7aaefe"
   args = "install"
 }
 
-action "yarn install" {
-  uses = "actions/docker/cli@76ff57a"
-  needs = ["Installing dependencies"]
-  args = "yarn"
-  runs = "docker pull circleci/node:11.4.0"
-}
-
 action "Linting" {
   uses = "actions/npm@e7aaefe"
-  needs = ["Installing dependencies"]
   args = "lint"
+  needs = ["Installing"]
+}
+
+action "Testing" {
+  uses = "actions/npm@e7aaefe"
+  needs = ["Installing"]
+  args = "test"
+}
+
+action "Building" {
+  uses = "actions/npm@e7aaefe"
+  needs = ["Linting", "Testing"]
+  args = "build-prod"
 }
