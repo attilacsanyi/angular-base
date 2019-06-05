@@ -1,7 +1,7 @@
-import { CoreEffectsService } from './core.effects';
-import { RouterEffectsService } from './router.effects';
+import { CoreEffects } from './core.effect';
+import { RouterEffects } from './router.effect';
 
-export const effects = [CoreEffectsService, RouterEffectsService];
+export const effects = [CoreEffects, RouterEffects];
 
-export * from './core.effects';
-export * from './router.effects';
+export * from './core.effect';
+export * from './router.effect';
