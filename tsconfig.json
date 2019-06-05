@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": "./buildcache/front-end",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
