@@ -15,7 +15,7 @@ version: 2
 ###############################################
 
 # Image
-var_00: &docker_image circleci/node:10.5.0
+var_00: &docker_image circleci/node:11.15.0
 # Directories
 var_01: &dist dist
 
@@ -45,88 +45,88 @@ var_30: &log_branch_name
 ###############################################
 
 jobs:
-    # The installing job
-    install:
-        <<: *job_defaults
-        steps:
-            - checkout
-            - *log_branch_name
-            - *restore_dependencies
+  # The installing job
+  install:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - *log_branch_name
+      - *restore_dependencies
 
-            # Installing
-            - run:
-                name: INSTALLING
-                command: yarn
-            - save_cache:
-                key: *cache_deps
-                paths:
-                  - node_modules
+      # Installing
+      - run:
+          name: INSTALLING
+          command: yarn
+      - save_cache:
+          key: *cache_deps
+          paths:
+            - node_modules
 
-    # The linting job
-    lint:
-        <<: *job_defaults
-        steps:
-            - checkout
-            - *log_branch_name
-            - *restore_dependencies
+  # The linting job
+  lint:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - *log_branch_name
+      - *restore_dependencies
 
-            # Linting
-            - run:
-                name: LINTING
-                command: yarn lint
+      # Linting
+      - run:
+          name: LINTING
+          command: yarn lint
 
-    # The testing job
-    test:
-        <<: *job_defaults
-        steps:
-            - checkout
-            - *log_branch_name
-            - *restore_dependencies
+  # The testing job
+  test:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - *log_branch_name
+      - *restore_dependencies
 
-            # Testing
-            - run:
-                name: TESTING
-                command: yarn ci-test
+      # Testing
+      - run:
+          name: TESTING
+          command: yarn ci-test
 
-    # The building job
-    build:
-        <<: *job_defaults
-        steps:
-            - checkout
-            - *log_branch_name
-            - *restore_dependencies
+  # The building job
+  build:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - *log_branch_name
+      - *restore_dependencies
 
-            # Building
-            - run:
-                name: BUILDING (-> dist)
-                command: yarn build-prod
-            - save_cache:
-                key: *cache_dist
-                paths:
-                  - *dist
+      # Building
+      - run:
+          name: BUILDING (-> dist)
+          command: yarn build-prod
+      - save_cache:
+          key: *cache_dist
+          paths:
+            - *dist
 
-    # The deploy job
-    deploy:
-        <<: *job_defaults
-        steps:
-            - checkout
-            - *log_branch_name
-            - *restore_dependencies
+  # The deploy job
+  deploy:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - *log_branch_name
+      - *restore_dependencies
 
-            # Restoring dist
-            - run:
-                name: CACHE (<- dist)
-                command: echo "Restoring dist..."
-            - restore_cache:
-                key: *cache_dist
+      # Restoring dist
+      - run:
+          name: CACHE (<- dist)
+          command: echo "Restoring dist..."
+      - restore_cache:
+          key: *cache_dist
 
-            # Deploying
-            - run:
-                name: DEPLOYING
-                command: |
-                  if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                    ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
-                  fi
+      # Deploying
+      - run:
+          name: DEPLOYING
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+            fi
 
 ###############################################
 # WORKFLOWS
