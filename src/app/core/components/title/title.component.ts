@@ -16,7 +16,7 @@ import * as selectors from '@core/store/selectors';
   selector: 'ac-title',
   templateUrl: './title.component.html',
   styleUrls: ['./title.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TitleComponent implements OnInit {
   @Input() title: string;
