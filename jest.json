@@ -4,6 +4,7 @@
   "collectCoverageFrom": ["src/**/*.ts", "!jest", "!src/*.ts", "!src/**/*.d.ts", "!src/**/index.ts"],
   "moduleNameMapper": {
     "^@env": "<rootDir>/src/environments/environment",
+    "^@appState": "<rootDir>/src/app/app.state",
     "^@core/(.*)": "<rootDir>/src/app/core/$1",
     "^@shared/(.*)": "<rootDir>/src/app/shared/$1",
     "^@home/(.*)": "<rootDir>/src/app/home/$1",

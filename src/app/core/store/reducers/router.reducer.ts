@@ -2,7 +2,7 @@ import { Params, RouterStateSnapshot } from '@angular/router';
 
 import { routerReducer, RouterReducerState, RouterStateSerializer } from '@ngrx/router-store';
 
-export type RouterState = RouterReducerState<PcgRouterState>;
+export type RouterState = RouterReducerState<AcRouterState>;
 
 export const initialState: RouterState = {
   navigationId: 0,
@@ -26,7 +26,7 @@ export const getUrlState = (state: RouterState) => (state.state ? state.state.ur
 /**
  *  https://github.com/ngrx/platform/blob/master/docs/router-store/api.md#custom-router-state-serializer
  */
-export interface PcgRouterState {
+export interface AcRouterState {
   url: string;
   params: Params;
   queryParams: Params;
@@ -35,12 +35,15 @@ export interface PcgRouterState {
 /**
  * Source: https://github.com/ngrx/platform/blob/master/docs/router-store/api.md#custom-router-state-serializer
  */
-export class AppRouterStateSerializer implements RouterStateSerializer<PcgRouterState> {
-  serialize(routerState: RouterStateSnapshot): PcgRouterState {
+export class AppRouterStateSerializer implements RouterStateSerializer<AcRouterState> {
+  serialize(routerState: RouterStateSnapshot): AcRouterState {
     let route = routerState.root;
     while (route.firstChild) route = route.firstChild;
 
-    const { url, root: { queryParams } } = routerState;
+    const {
+      url,
+      root: { queryParams }
+    } = routerState;
     const { params } = route;
 
     // Only return an object including the URL, params and query params
