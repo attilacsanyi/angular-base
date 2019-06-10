@@ -31,7 +31,7 @@ export class TitleComponent implements OnInit {
     this.user$ = this.store$.pipe(select(selectors.getUserState));
   }
 
-  logout = () => this.store$.dispatch(new actions.LogoutAction());
+  logout = () => this.store$.dispatch(actions.logout);
 
-  login = () => this.store$.dispatch(new actions.LoginSuccessAction(models.testUser));
+  login = () => this.store$.dispatch(actions.loginSuccess({ user: models.testUser }));
 }

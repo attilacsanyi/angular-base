@@ -1,6 +1,6 @@
 import { NavigationExtras, Params } from '@angular/router';
 
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
 // prettier-ignore
 export enum RouterActionTypes {
@@ -12,40 +12,14 @@ export enum RouterActionTypes {
   Forward           = '[Router] Forward'
 }
 
-export class RouterGoAction implements Action {
-  readonly type = RouterActionTypes.Go;
-  constructor(public path: any[], public queryParams?: Params, public extras?: NavigationExtras) {}
-}
+export const routerGo = createAction(RouterActionTypes.Go, props<{ path: any[]; queryParams?: Params; extras?: NavigationExtras }>());
 
-export class RouterMergeQueryParamsAction implements Action {
-  readonly type = RouterActionTypes.MergeQueryParams;
-  constructor(public queryParams: Params) {}
-}
+export const routerMergeQueryParams = createAction(RouterActionTypes.MergeQueryParams, props<{ queryParams: Params }>());
 
-export class RouterSetQueryParamsAction implements Action {
-  readonly type = RouterActionTypes.SetQueryParams;
-  constructor(public queryParams: Params) {}
-}
+export const routerSetQueryParams = createAction(RouterActionTypes.SetQueryParams, props<{ queryParams: Params }>());
 
-export class RouterGoByUrlAction implements Action {
-  readonly type = RouterActionTypes.GoByURL;
-  constructor(public url: string, public extras?: NavigationExtras) {}
-}
+export const routerGoByUrl = createAction(RouterActionTypes.GoByURL, props<{ url: string; extras?: NavigationExtras }>());
 
-export class RouterBackAction implements Action {
-  readonly type = RouterActionTypes.Back;
-  constructor() {}
-}
+export const routerBack = createAction(RouterActionTypes.Back);
 
-export class RouterForwardAction implements Action {
-  readonly type = RouterActionTypes.Forward;
-  constructor() {}
-}
-
-export type RouterActions =
-  | RouterGoAction
-  | RouterMergeQueryParamsAction
-  | RouterSetQueryParamsAction
-  | RouterGoByUrlAction
-  | RouterBackAction
-  | RouterForwardAction;
+export const routerForward = createAction(RouterActionTypes.Forward);

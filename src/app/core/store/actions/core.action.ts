@@ -1,27 +1,21 @@
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
 import { User } from '@core/models';
 
 const modulePrefix = '[Core]';
 
-export class LoginAction implements Action {
-  readonly type = `${modulePrefix} Login`;
-  constructor(public username: string, public password: string) {}
+// prettier-ignore
+export enum CoreActionTypes {
+  Login         = '[Core] Login',
+  LoginSuccess  = '[Core] Login Success',
+  LoginFailed   = '[Core] Login Failed',
+  Logout        = '[Core] Logout'
 }
 
-export class LoginSuccessAction implements Action {
-  readonly type = `${modulePrefix} Login Success`;
-  constructor(public user: User) {}
-}
+export const login = createAction(CoreActionTypes.Login, props<{ username: string; password: string }>());
 
-export class LoginFailedAction implements Action {
-  readonly type = `${modulePrefix} Login Failed`;
-  constructor(public error: string) {}
-}
+export const loginSuccess = createAction(CoreActionTypes.LoginSuccess, props<{ user: User }>());
 
-export class LogoutAction implements Action {
-  readonly type = `${modulePrefix} Logout`;
-  constructor() {}
-}
+export const loginFailed = createAction(CoreActionTypes.LoginFailed, props<{ error: string }>());
 
-export type CoreActions = LoginAction | LoginSuccessAction | LoginFailedAction | LogoutAction;
+export const logout = createAction(CoreActionTypes.Logout);
