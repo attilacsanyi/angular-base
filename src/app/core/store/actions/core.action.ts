@@ -2,8 +2,6 @@ import { createAction, props } from '@ngrx/store';
 
 import { User } from '@core/models';
 
-const modulePrefix = '[Core]';
-
 // prettier-ignore
 export enum CoreActionTypes {
   Login         = '[Core] Login',
