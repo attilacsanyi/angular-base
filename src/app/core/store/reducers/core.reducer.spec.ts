@@ -10,7 +10,7 @@ describe('CoreStateReducer', () => {
   describe('LogoutAction', () => {
     it('should reset user state', () => {
       const oldState = assignToInitState({ user: model.testUser });
-      const newState = fromStore.reducer(oldState, new actions.LogoutAction());
+      const newState = fromStore.reducer(oldState, actions.logout());
 
       expect(newState).toEqual(assignToInitState({}));
     });
@@ -19,7 +19,7 @@ describe('CoreStateReducer', () => {
   describe('LoginSuccessAction', () => {
     it('should store new user', () => {
       const oldState = assignToInitState({ user: undefined });
-      const newState = fromStore.reducer(oldState, new actions.LoginSuccessAction(model.testUser));
+      const newState = fromStore.reducer(oldState, actions.loginSuccess({ user: model.testUser }));
 
       expect(newState).toEqual(assignToInitState({ user: model.testUser }));
     });
