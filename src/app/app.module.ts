@@ -28,7 +28,12 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? [] : []
     StoreModule.forRoot(reducers, {
       metaReducers,
       initialState,
-      runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true }
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+        strictActionSerializability: true,
+        strictStateSerializability: true
+      }
     }),
     EffectsModule.forRoot(effects),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),

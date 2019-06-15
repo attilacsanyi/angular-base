@@ -2,18 +2,10 @@ import { createAction, props } from '@ngrx/store';
 
 import { User } from '@core/models';
 
-// prettier-ignore
-export enum CoreActionTypes {
-  Login         = '[Core] Login',
-  LoginSuccess  = '[Core] Login Success',
-  LoginFailed   = '[Core] Login Failed',
-  Logout        = '[Core] Logout'
-}
+const prefix = '[Core]';
 
-export const login = createAction(CoreActionTypes.Login, props<{ username: string; password: string }>());
+export const login = createAction(`${prefix} Login`, props<{ username: string; password: string }>());
+export const loginSuccess = createAction(`${prefix} Login Success`, props<{ user: User }>());
+export const loginFailed = createAction(`${prefix} Login Failed`, props<{ error: string }>());
 
-export const loginSuccess = createAction(CoreActionTypes.LoginSuccess, props<{ user: User }>());
-
-export const loginFailed = createAction(CoreActionTypes.LoginFailed, props<{ error: string }>());
-
-export const logout = createAction(CoreActionTypes.Logout);
+export const logout = createAction(`${prefix} Logout`);
