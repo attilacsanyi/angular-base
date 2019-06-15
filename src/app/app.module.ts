@@ -36,7 +36,7 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? [] : []
       }
     }),
     EffectsModule.forRoot(effects),
-    StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
+    StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({
       maxAge: 50, //  Retains last 50 states
       logOnly: environment.production,
