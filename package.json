@@ -82,11 +82,10 @@
     "rxjs-tslint-rules": "4.23.2",
     "stylelint": "10.0.1",
     "stylelint-config-standard": "18.3.0",
-    "ts-loader": "6.0.2",
-    "@types/jasmine": "3.3.12",
+    "@types/jasmine": "3.3.13",
     "@types/jasminewd2": "2.0.6",
     "@types/lodash-es": "4.17.3",
-    "ts-node": "8.2.0",
+    "ts-node": "8.3.0",
     "tslint": "5.17.0",
     "tslint-consistent-codestyle": "1.15.1",
     "typescript": "3.4.5"
