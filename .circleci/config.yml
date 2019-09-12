@@ -20,7 +20,7 @@ var_00: &docker_image circleci/node:12.4.0
 var_01: &dist dist
 
 # Cache variables
-var_10: &cache_deps v1-angular-base-{{ .Branch }}-{{ checksum "yarn.lock" }}
+var_10: &cache_deps v1-angular-base-{{ .Branch }}-{{ checksum "package-lock.json" }}
 var_11: &restore_dependencies
   restore_cache:
     keys:
@@ -56,7 +56,7 @@ jobs:
       # Installing
       - run:
           name: INSTALLING
-          command: yarn
+          command: npm i
       - save_cache:
           key: *cache_deps
           paths:
@@ -73,7 +73,7 @@ jobs:
       # Linting
       - run:
           name: LINTING
-          command: yarn lint
+          command: nom run lint
 
   # The testing job
   test:
@@ -86,7 +86,7 @@ jobs:
       # Testing
       - run:
           name: TESTING
-          command: yarn ci-test
+          command: npm run ci-test
 
   # The building job
   build:
@@ -99,7 +99,7 @@ jobs:
       # Building
       - run:
           name: BUILDING (-> dist)
-          command: yarn build-prod
+          command: npm run build-prod
       - save_cache:
           key: *cache_dist
           paths:
