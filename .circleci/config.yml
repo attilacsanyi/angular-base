@@ -73,7 +73,7 @@ jobs:
       # Linting
       - run:
           name: LINTING
-          command: nom run lint
+          command: npm run lint
 
   # The testing job
   test:
