@@ -59,10 +59,51 @@
     "triple-equals": [true, "allow-null-check"],
     "unified-signatures": true,
     "variable-name": false,
-    "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ],
     "file-name-casing": [true, "kebab-case"],
     "cyclomatic-complexity": [true, 5],
     "ban-ts-ignore": true,
+    "no-duplicate-imports": true,
+    "import-blacklist": [true, "@angular/material", "@angular/cdk"],
+    "no-async-without-await": true,
+    "comment-format": [
+      true,
+      "check-space",
+      {
+        "ignore-words": [],
+        "ignore-pattern": "export|import|tap|http|prettier-ignore|TODO|ISSUE"
+      }
+    ],
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "case-insensitive",
+        "grouped-imports": true,
+        "groups": [
+          "^@angular",
+          "^@ngrx",
+          "^rxjs",
+          "^lodash|moment",
+          "^@env|environments",
+          "^@app",
+          "^@shared",
+          "^@core",
+          "^@home",
+          "^@dashboard"
+        ]
+      }
+    ],
+    "no-for-in": true,
+    "strict-string-expressions": true,
+    "unnecessary-constructor": [true, { "check-super-calls": true }],
     //-----------------------
     // Codelyzer
     //-----------------------
@@ -111,6 +152,7 @@
     "template-no-autofocus": true,
     "template-no-distracting-elements": true,
     "template-no-any": true,
+    "curly": [true, "as-needed"],
     //-----------------------
     // Consistent Codestyle
     //-----------------------
@@ -232,6 +274,7 @@
         }
       ],
       "severity": "error"
-    }
+    },
+    "rxjs-no-index": true
   }
 }

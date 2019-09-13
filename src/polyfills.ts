@@ -60,3 +60,11 @@ import 'zone.js/dist/zone';
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+// ISSUE: https://github.com/auth0/lock/issues/1411
+(window as any).global = window;
+
+// ISSUE: https://github.com/algolia/algoliasearch-client-javascript/issues/691
+// Source: https://stackoverflow.com/questions/50313745/angular-6-process-is-not-defined-when-trying-to-serve-application
+(window as any).process = {
+  env: { DEBUG: undefined }
+};

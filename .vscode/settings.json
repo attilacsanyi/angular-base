@@ -7,6 +7,8 @@
     "**/.history": true
   },
   "files.autoSave": "off",
+  // TSLint
+  "tslint.autoFixOnSave": true,
   // Search
   "search.exclude": {
     ".vscode": true,
@@ -23,25 +25,5 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   // Editor
   "window.title": "${rootName}${separator}${activeEditorLong} ${dirty}",
-  "editor.formatOnSave": true,
-  // Prettier
-  "prettier.singleQuote": true,
-  "prettier.printWidth": 140,
-  // Typescripthero
-  "typescriptHero.imports.organizeOnSave": true,
-  "typescriptHero.imports.multiLineWrapThreshold": 140,
-  "typescriptHero.imports.grouping": [
-    "/@angular/",
-    "/@ngrx/",
-    "/rxjs/",
-    "Plains",
-    "Modules",
-    "/@env/",
-    "/@shared/",
-    "/@core/",
-    "/common//",
-    "/@home/",
-    "/@dashboard/",
-    "Workspace"
-  ]
+  "editor.formatOnSave": true
 }

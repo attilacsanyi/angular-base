@@ -8,9 +8,12 @@ export const routes: Routes = [
 
   // Lazy loaded modules
   { path: 'home', loadChildren: 'app/home/home.module#HomeModule' },
-  { path: 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule' }
+  {
+    path: 'dashboard',
+    loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+  }
 
-  //{ path: '**', redirectTo: 'home' }
+  // { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
