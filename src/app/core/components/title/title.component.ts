@@ -1,16 +1,22 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, VERSION } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+  VERSION
+} from '@angular/core';
 
 import { select, Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
-
-import { AppState } from 'app/app.state';
 
 import { environment } from '@env';
 
 import * as models from '@core/models';
 import * as actions from '@core/store/actions';
 import * as selectors from '@core/store/selectors';
+
+import { AppState } from 'app/app.state';
 
 @Component({
   selector: 'ac-title',
@@ -33,5 +39,6 @@ export class TitleComponent implements OnInit {
 
   logout = () => this.store$.dispatch(actions.logout());
 
-  login = () => this.store$.dispatch(actions.loginSuccess({ user: models.testUser }));
+  login = () =>
+    this.store$.dispatch(actions.loginSuccess({ user: models.testUser }));
 }

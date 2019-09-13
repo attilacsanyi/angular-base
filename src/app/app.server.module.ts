@@ -4,7 +4,6 @@ import { ServerModule } from '@angular/platform-server';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
-
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
 import { ShellComponent } from './shell/shell.component';
@@ -19,7 +18,13 @@ const routes: Routes = [{ path: 'shell', component: ShellComponent }];
  * https://github.com/angular/flex-layout/blob/master/guides/SSR.md
  */
 @NgModule({
-  imports: [AppModule, ServerModule, ModuleMapLoaderModule, FlexLayoutServerModule, RouterModule.forRoot(routes)],
+  imports: [
+    AppModule,
+    ServerModule,
+    ModuleMapLoaderModule,
+    FlexLayoutServerModule,
+    RouterModule.forRoot(routes)
+  ],
   bootstrap: [AppComponent],
   declarations: [ShellComponent]
 })

@@ -1,7 +1,0 @@
-{
-  "port": 6201,
-  "open": false,
-  "server": {
-    "baseDir": "./dist"
-  }
-}

@@ -5,7 +5,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SwUpdate } from '@angular/service-worker';
 
-import { StoreModule } from '@ngrx/store';
+import { provideMockStore } from '@ngrx/store/testing';
 
 import { SnackBarService } from '@shared/services';
 
@@ -19,9 +19,14 @@ describe('AppComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [NoopAnimationsModule, MatSnackBarModule, RouterTestingModule, StoreModule.forRoot({})],
+      imports: [NoopAnimationsModule, MatSnackBarModule, RouterTestingModule],
       declarations: [AppComponent],
-      providers: [NotificationService, SnackBarService, { provide: SwUpdate, useValue: {} }],
+      providers: [
+        NotificationService,
+        SnackBarService,
+        { provide: SwUpdate, useValue: {} },
+        provideMockStore({})
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
