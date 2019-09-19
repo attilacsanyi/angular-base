@@ -1,15 +1,33 @@
 {
   "preset": "jest-preset-angular",
-  "setupTestFrameworkScriptFile": "<rootDir>/jest/jest-setup.ts",
-  "collectCoverageFrom": ["src/**/*.ts", "!jest", "!src/*.ts", "!src/**/*.d.ts", "!src/**/index.ts"],
+  "setupFilesAfterEnv": ["<rootDir>/jest/jest-setup.ts"],
+  "testPathIgnorePatterns": [
+    "<rootDir>/node_modules/",
+    "<rootDir>/coverage/",
+    "<rootDir>/dist/",
+    "<rootDir>/dist-server/",
+    "<rootDir>/docs/",
+    "<rootDir>/e2e/"
+  ],
+  "collectCoverageFrom": [
+    "src/**/*.ts",
+    "!jest",
+    "!src/*.ts",
+    "!src/**/*.d.ts",
+    "!src/**/index.ts"
+  ],
   "moduleNameMapper": {
-    "^@env": "<rootDir>/src/environments/environment",
-    "^@appState": "<rootDir>/src/app/app.state",
-    "^@core/(.*)": "<rootDir>/src/app/core/$1",
-    "^@shared/(.*)": "<rootDir>/src/app/shared/$1",
-    "^@home/(.*)": "<rootDir>/src/app/home/$1",
-    "^@dashboard/(.*)": "<rootDir>/src/app/dashboard/$1"
+    "^@env$": "<rootDir>/src/environments/environment",
+    "^@appState$": "<rootDir>/src/app/app.state",
+    "^@core/(.*)$": "<rootDir>/src/app/core/$1",
+    "^@shared/(.*)$": "<rootDir>/src/app/shared/$1",
+    "^@home/(.*)$": "<rootDir>/src/app/home/$1",
+    "^@dashboard/(.*)$": "<rootDir>/src/app/dashboard/$1"
   },
-  "transformIgnorePatterns": ["node_modules/(?!@ngrx|lodash-es)"],
+  "transformIgnorePatterns": ["<rootDir>/node_modules/(?!@ngrx|lodash-es)"],
+  "displayName": {
+    "name": "Angular Base",
+    "color": "blue"
+  },
   "bail": true
 }
