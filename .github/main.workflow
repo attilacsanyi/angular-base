@@ -1,5 +1,6 @@
 workflow "Angular Base" {
-  on = "push"
+  on       = "push"
+
   resolves = [
     "Testing",
     "Building",
@@ -12,19 +13,29 @@ action "Installing" {
 }
 
 action "Linting" {
-  uses = "actions/npm@e7aaefe"
-  args = "run lint"
-  needs = ["Installing"]
+  uses  = "actions/npm@e7aaefe"
+  args  = "npm run lint"
+
+  needs = [
+    "Installing"
+  ]
 }
 
 action "Testing" {
-  uses = "actions/npm@e7aaefe"
-  needs = ["Installing"]
-  args = "run test"
+  uses  = "actions/npm@e7aaefe"
+  args  = "npm run test"
+
+  needs = [
+    "Installing"
+  ]
 }
 
 action "Building" {
-  uses = "actions/npm@e7aaefe"
-  needs = ["Linting", "Testing"]
-  args = "run build-prod"
+  uses  = "actions/npm@e7aaefe"
+  args  = "npm run build-prod"
+
+  needs = [
+    "Linting",
+    "Testing"
+  ]
 }
