@@ -19,48 +19,66 @@
             "stylePreprocessorOptions": {
               "includePaths": ["src"]
             },
-            "assets": ["src/assets", "src/favicon.ico", "src/manifest.json", "src/robots.txt", "src/sitemap.xml"],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/manifest.json",
+              "src/robots.txt",
+              "src/sitemap.xml"
+            ],
             "styles": ["src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+
+            "optimization": true,
+            "aot": true,
+            "sourceMap": false,
+            "vendorChunk": true,
+            "commonChunk": true,
+            "progress": false,
+            "extractCss": true,
+            "outputHashing": "all",
+            "extractLicenses": true,
+            "showCircularDependencies": false,
+            "buildOptimizer": true,
+            "namedChunks": true,
+            "serviceWorker": true,
+            "statsJson": false,
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "5mb",
+                "maximumError": "7mb"
+              }
+            ]
           },
           "configurations": {
             "local": {
+              "optimization": false,
               "aot": true,
-              "sourceMap": false,
+              "sourceMap": true,
               "progress": true,
+              "extractCss": false,
+              "outputHashing": "none",
+              "extractLicenses": false,
               "showCircularDependencies": true,
+              "buildOptimizer": false,
+              "serviceWorker": false,
               "statsJson": true
             },
             "local-no-aot": {
+              "optimization": false,
               "aot": false,
-              "sourceMap": false,
+              "sourceMap": true,
               "progress": true,
+              "extractCss": false,
+              "outputHashing": "none",
+              "extractLicenses": false,
               "showCircularDependencies": true,
+              "buildOptimizer": false,
+              "serviceWorker": false,
               "statsJson": true
             },
             "production": {
-              "optimization": true,
-              "aot": true,
-              "sourceMap": false,
-              "vendorChunk": true,
-              "commonChunk": true,
-              "progress": false,
-              "extractCss": true,
-              "outputHashing": "all",
-              "extractLicenses": true,
-              "showCircularDependencies": false,
-              "buildOptimizer": true,
-              "namedChunks": true,
-              "serviceWorker": true,
-              "ngswConfigPath": "src/ngsw-config.json",
-              "statsJson": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "5mb",
-                  "maximumError": "7mb"
-                }
-              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -94,25 +112,23 @@
             "browserTarget": "angular-base:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "src/test.ts",
-            "karmaConfig": "./karma.conf.js",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "scripts": [],
-            "styles": ["src/styles.scss"],
-            "assets": ["src/assets", "src/favicon.ico", "src/manifest.json"]
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"],
-            "fix": true,
-            "typeCheck": true
+            "exclude": ["**/node_modules/**"]
+          },
+          "configurations": {
+            "local": {
+              "fix": true,
+              "typeCheck": true,
+              "force": false
+            },
+            "production": {
+              "fix": false,
+              "typeCheck": false,
+              "force": false
+            }
           }
         },
         "server": {
@@ -170,6 +186,18 @@
           "options": {
             "tsConfig": ["e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**"]
+          },
+          "configurations": {
+            "local": {
+              "fix": true,
+              "typeCheck": true,
+              "force": false
+            },
+            "production": {
+              "fix": false,
+              "typeCheck": false,
+              "force": false
+            }
           }
         }
       }
@@ -180,7 +208,8 @@
     "@schematics/angular:component": {
       "changeDetection": "OnPush",
       "prefix": "ac",
-      "styleext": "scss"
+      "styleext": "scss",
+      "skipImport": true
     },
     "@schematics/angular:directive": {
       "prefix": "ac"

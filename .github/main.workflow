@@ -14,7 +14,7 @@ action "Installing" {
 
 action "Linting" {
   uses  = "actions/npm@e7aaefe"
-  args  = "npm run lint"
+  args  = "npm run ci-lint"
 
   needs = [
     "Installing"
@@ -23,7 +23,7 @@ action "Linting" {
 
 action "Testing" {
   uses  = "actions/npm@e7aaefe"
-  args  = "npm run test"
+  args  = "npm run ci-test"
 
   needs = [
     "Installing"
