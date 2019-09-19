@@ -15,7 +15,7 @@ version: 2
 ###############################################
 
 # Image
-var_00: &docker_image circleci/node:12.4.0
+var_00: &docker_image circleci/node:12.10.0
 # Directories
 var_01: &dist dist
 
@@ -56,7 +56,7 @@ jobs:
       # Installing
       - run:
           name: INSTALLING
-          command: npm i
+          command: npm install
       - save_cache:
           key: *cache_deps
           paths:
@@ -73,7 +73,7 @@ jobs:
       # Linting
       - run:
           name: LINTING
-          command: npm run lint
+          command: npm run ci-lint
 
   # The testing job
   test:
