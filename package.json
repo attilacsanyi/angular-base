@@ -14,7 +14,7 @@
     "build-prod": "ng run angular-base:app-shell --configuration production",
     "build-prod-no-ssr": "ng build --configuration production",
     "ci": "npm-run-all ci-lint ci-test",
-    "ci-prod": "npm-run-all ci build-prod",
+    "ci-prod": "npm-run-all --parallel ci build-prod",
     "ci-test": "jest --maxWorkers=4 --ci --coverage --coverageReporters=\"text\" --config jest.json",
     "ci-lint": "npm-run-all ci-lint-ts ci-lint-styles",
     "ci-lint-ts": "ng lint --configuration production",
