@@ -1,5 +1,6 @@
-export class User {
-  constructor(public name: string, public age: number) {}
+export interface User {
+  name: string;
+  age: number;
 }
 
-export const testUser = new User('Attila', 34);
+export const testUser: User = { name: 'Attila', age: 34 };

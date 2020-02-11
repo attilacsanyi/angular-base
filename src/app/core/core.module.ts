@@ -8,10 +8,7 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EffectsModule } from '@ngrx/effects';
-import {
-  RouterStateSerializer,
-  StoreRouterConnectingModule
-} from '@ngrx/router-store';
+import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { MetaReducer, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
@@ -48,7 +45,10 @@ export const metaReducers: MetaReducer<any>[] = environment.production
       }
     }),
     EffectsModule.forRoot(effects),
-    StoreRouterConnectingModule.forRoot(),
+    StoreRouterConnectingModule.forRoot({
+      routerState: RouterState.Minimal,
+      serializer: AppRouterStateSerializer
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 50, //  Retains last 50 states
       logOnly: environment.production,
@@ -63,10 +63,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders<CoreModule> {
     return {
       ngModule: CoreModule,
-      providers: [
-        { provide: RouterStateSerializer, useClass: AppRouterStateSerializer },
-        ...services
-      ]
+      providers: [...services]
     };
   }
 
