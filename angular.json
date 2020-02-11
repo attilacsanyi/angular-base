@@ -28,7 +28,6 @@
             ],
             "styles": ["src/styles.scss"],
             "scripts": [],
-
             "optimization": true,
             "aot": true,
             "sourceMap": false,
@@ -45,9 +44,8 @@
             "statsJson": false,
             "budgets": [
               {
-                "type": "initial",
-                "maximumWarning": "5mb",
-                "maximumError": "7mb"
+                "type": "anyComponentStyle",
+                "maximumWarning": "6kb"
               }
             ]
           },
@@ -55,19 +53,6 @@
             "local": {
               "optimization": false,
               "aot": true,
-              "sourceMap": true,
-              "progress": true,
-              "extractCss": false,
-              "outputHashing": "none",
-              "extractLicenses": false,
-              "showCircularDependencies": true,
-              "buildOptimizer": false,
-              "serviceWorker": false,
-              "statsJson": true
-            },
-            "local-no-aot": {
-              "optimization": false,
-              "aot": false,
               "sourceMap": true,
               "progress": true,
               "extractCss": false,
@@ -97,9 +82,6 @@
           "configurations": {
             "local": {
               "browserTarget": "angular-base:build:local"
-            },
-            "local-no-aot": {
-              "browserTarget": "angular-base:build:local-no-aot"
             },
             "production": {
               "browserTarget": "angular-base:build:production"
@@ -214,5 +196,8 @@
     "@schematics/angular:directive": {
       "prefix": "ac"
     }
+  },
+  "cli": {
+    "analytics": "89535592-4243-4c00-9c21-4a12aba8b70b"
   }
 }
