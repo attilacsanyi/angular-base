@@ -60,7 +60,7 @@ export const metaReducers: MetaReducer<any>[] = environment.production
   exports: [SharedModule, TitleComponent]
 })
 export class CoreModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<CoreModule> {
     return {
       ngModule: CoreModule,
       providers: [
