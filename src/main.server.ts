@@ -4,4 +4,4 @@ import { environment } from './environments/environment';
 
 if (environment.production) enableProdMode();
 
-export { AppServerModule } from './app/app.server.module';
+export { AppServerModule, renderModule } from './app/app.server.module';

@@ -29,3 +29,5 @@ const routes: Routes = [{ path: 'shell', component: ShellComponent }];
   declarations: [ShellComponent]
 })
 export class AppServerModule {}
+
+export { renderModule } from '@angular/platform-server';
